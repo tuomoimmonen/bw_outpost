@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf37cxs5rl0lw"]
+
+[ext_resource type="Script" path="res://Items/World Items/world_item.gd" id="1_tytxf"]
+[ext_resource type="PackedScene" uid="uid://dn7aipt4ao71t" path="res://Items/sword_item.tscn" id="1_xps64"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iiw7x"]
+radius = 0.2
+height = 0.8
+
+[node name="Worlditem_sword" type="RigidBody3D"]
+script = ExtResource("1_tytxf")
+item_name = "Sword"
+interact_prompt = "Pickup sword"
+
+[node name="SwordItem" parent="." instance=ExtResource("1_xps64")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("CapsuleShape3D_iiw7x")

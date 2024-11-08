@@ -1,0 +1,243 @@
+[gd_scene load_steps=12 format=3 uid="uid://sreijsi61fcs"]
+
+[ext_resource type="Script" path="res://Items/equip_object_pistol.gd" id="1_jfhjy"]
+[ext_resource type="Texture2D" uid="uid://cd58tr6beiing" path="res://Sprites/muzzleFlash.png" id="1_q6q0c"]
+[ext_resource type="PackedScene" uid="uid://bs67ch8ta6ntl" path="res://AI/basic_pistol_2.tscn" id="3_jahsk"]
+[ext_resource type="Texture2D" uid="uid://lqkvoysyhjcw" path="res://Sprites/crosshair.png" id="3_yxwyl"]
+[ext_resource type="AudioStream" uid="uid://ci4dhxesrwn5p" path="res://audio/FIREARM_Handgun_B_FS92_9mm_Fire_Short_Reverb_Tail_RR2_stereo.wav" id="5_w6jhs"]
+[ext_resource type="AudioStream" uid="uid://bk8cqce52coyb" path="res://audio/HANDLING_B_FS92_9mm_Safety_Off_Empty_Magazine_mono.wav" id="6_qrg7e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qljuy"]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_q6q0c")
+emission_enabled = true
+emission = Color(0.651635, 0.334768, 0, 1)
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("1_q6q0c")
+
+[sub_resource type="QuadMesh" id="QuadMesh_wmd2l"]
+material = SubResource("StandardMaterial3D_qljuy")
+flip_faces = true
+orientation = 0
+
+[sub_resource type="Animation" id="Animation_yps5a"]
+length = 0.001
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("basic_pistol2/muzzle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1, 1, 1)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("basic_pistol2/muzzle:mesh:material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("basic_pistol2/muzzle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("basic_pistol2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("basic_pistol2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("basic_pistol2:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.15, 0.15, 0.15)]
+}
+
+[sub_resource type="Animation" id="Animation_0638m"]
+resource_name = "shoot"
+length = 0.2
+step = 0.01
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("basic_pistol2/muzzle")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.06, 1, 1, 1, 1, 0.14, 1, 2, 2, 2, 0.2, 1, 0, 0, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("basic_pistol2/muzzle:mesh:material:albedo_color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.14, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 0.905148, 0.188703, 1), Color(1, 0.476224, 0.213454, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("basic_pistol2/muzzle:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("basic_pistol2:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.12, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0.349066), Vector3(0, 1.5708, -0.0872665), Vector3(0, 1.5708, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("basic_pistol2:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.13, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(6.55671e-09, 0, 0.15), Vector3(0, 0, -0.05), Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("basic_pistol2:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.15, 0.15, 0.15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4kwf"]
+_data = {
+"RESET": SubResource("Animation_yps5a"),
+"shoot": SubResource("Animation_0638m")
+}
+
+[node name="equip_object_pistol" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, -0.6, -0.8)
+script = ExtResource("1_jfhjy")
+
+[node name="basic_pistol2" parent="." instance=ExtResource("3_jahsk")]
+transform = Transform3D(-5.42999e-07, 0, 0.15, 0, 0.15, 0, -0.15, 0, -5.42999e-07, 0, 0, 0)
+
+[node name="muzzle" type="MeshInstance3D" parent="basic_pistol2"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 4.2, 1, -6.55671e-08)
+visible = false
+layers = 2
+mesh = SubResource("QuadMesh_wmd2l")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_c4kwf")
+}
+
+[node name="GunRay" type="RayCast3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.6, -0.4)
+target_position = Vector3(0, 0, -50)
+collide_with_areas = true
+
+[node name="BigCrosshair" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yxwyl")
+expand_mode = 1
+
+[node name="gun_sound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.5)
+stream = ExtResource("5_w6jhs")
+max_distance = 2.0
+
+[node name="empty_gun_sound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.5)
+stream = ExtResource("6_qrg7e")
+max_distance = 2.0
+
+[node name="ammo_text" type="Label" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.196078)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 3.5
+offset_top = -14.0
+offset_right = 78.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Ammo: 1"
+vertical_alignment = 1

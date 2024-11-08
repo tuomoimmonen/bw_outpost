@@ -1,0 +1,354 @@
+[gd_scene load_steps=35 format=3 uid="uid://byvnqd5nyi4o"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_srlcb"]
+[ext_resource type="Script" path="res://Player/interaction_controller.gd" id="2_0ll85"]
+[ext_resource type="AudioStream" uid="uid://dc81u6wnfu8c8" path="res://audio/FOOTSTEP_Leather_Wood_Hollow_Jog_RR1_mono.wav" id="2_2aqb8"]
+[ext_resource type="AudioStream" uid="uid://cst454jsoshr1" path="res://audio/FOOTSTEP_Trainers_Gravel_Compact_Run_RR6_mono.wav" id="3_dctmt"]
+[ext_resource type="AudioStream" uid="uid://c8lujn71wetwh" path="res://audio/FOOTSTEP_Leather_Wood_Hollow_Walk_RR5_mono.wav" id="3_fjnjh"]
+[ext_resource type="Texture2D" uid="uid://lqkvoysyhjcw" path="res://Sprites/crosshair.png" id="3_fry1x"]
+[ext_resource type="Script" path="res://Items/Inventory.gd" id="4_fgrls"]
+[ext_resource type="PackedScene" uid="uid://ds7qc043k7cpa" path="res://Items/inventory_slot_button.tscn" id="5_0hc51"]
+[ext_resource type="AudioStream" uid="uid://wqbiqb1s5fjs" path="res://audio/UI_Click_Aftertap_mono.wav" id="5_7qrpg"]
+[ext_resource type="Script" path="res://Items/item.gd" id="5_glmuj"]
+[ext_resource type="Script" path="res://Player/flashlight_2.gd" id="5_hui0s"]
+[ext_resource type="AudioStream" uid="uid://b6qofco30yya7" path="res://audio/FOOTSTEP_Trainers_Gravel_Compact_Walk_Slow_RR6_mono.wav" id="5_s0865"]
+[ext_resource type="Resource" uid="uid://x18y6v8688j3" path="res://Items/Item Data/Flashlight2.tres" id="6_86um7"]
+[ext_resource type="PackedScene" uid="uid://bkxxpallnyrfo" path="res://flashlight_2.tscn" id="6_qiqbu"]
+[ext_resource type="Texture2D" uid="uid://o0u7qmp0yqbe" path="res://3d models/flashtlight_texture.png" id="7_1fqnq"]
+[ext_resource type="Texture2D" uid="uid://c0n43amhjwmxw" path="res://decals/crosshair_dot.PNG" id="8_j51h5"]
+[ext_resource type="AudioStream" uid="uid://da6p756a538jk" path="res://audio/BUTTON_Light_Switch_01_stereo.wav" id="10_6kg1b"]
+[ext_resource type="Script" path="res://Combat/health.gd" id="10_o0fb4"]
+[ext_resource type="Script" path="res://Combat/progress_bar.gd" id="11_vnwfp"]
+[ext_resource type="Script" path="res://Combat/fall_damage.gd" id="12_p1t7s"]
+[ext_resource type="Script" path="res://Combat/equip_controller.gd" id="13_qqobi"]
+[ext_resource type="Resource" uid="uid://lc015fgt20b7" path="res://Items/Item Data/Pistol.tres" id="14_lj7g7"]
+[ext_resource type="AudioStream" uid="uid://cui7bl2yhxboc" path="res://audio/FOOTSTEP_Leather_Wood_Hollow_Land_RR1_mono.wav" id="18_fja0w"]
+[ext_resource type="AudioStream" uid="uid://l5ru8nmio68" path="res://audio/AMBIENCE_Forest_Wind_Tree_Creak_34sec_loop_stereo.wav" id="21_0bea6"]
+[ext_resource type="AudioStream" uid="uid://bnin64qdqif55" path="res://audio/AMBIENCE_SciFi_Static_Tonal_loop_stereo.wav" id="22_df3vr"]
+[ext_resource type="AudioStream" uid="uid://vnb2syajgqjo" path="res://audio/exhausted_recorded.ogg" id="25_ngi1q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3qxwv"]
+margin = 0.1
+radius = 0.3
+height = 1.8
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlayr"]
+shadow_color = Color(0, 0, 0, 0.588235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7d1tn"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.156863)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yksdc"]
+bg_color = Color(1, 0.341176, 0.286275, 0.156863)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oiv11"]
+font_size = 10
+shadow_color = Color(0, 0, 0, 0.588235)
+
+[sub_resource type="ImageTexture" id="ImageTexture_owosu"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_p6tnv"]
+color = Color(0, 0, 0, 0.196078)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6emae"]
+bg_color = Color(0.823529, 0.811765, 0.803922, 0.196078)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("weapon_holder") groups=["Player"]]
+wall_min_slide_angle = 0.436332
+floor_stop_on_slope = false
+safe_margin = 0.01
+script = ExtResource("1_srlcb")
+max_speed = 3.5
+acceleration = 15.0
+deceleration = 15.0
+max_run_speed = 4.5
+run_audio_inside = ExtResource("2_2aqb8")
+run_audio_outside = ExtResource("3_dctmt")
+walk_audio_inside = ExtResource("3_fjnjh")
+walk_audio_outside = ExtResource("5_s0865")
+sprint_drain_speed = 33.0
+sprint_recovery_speed = 10.0
+bob_freq = 2.5
+bob_amplitude = 0.1
+weapon_holder = NodePath("Head/Camera3D/EquipOrigin")
+weapon_sway_amount = 1.0
+weapon_rotation_amount = 0.1
+camera_rotation_amount = 0.075
+
+[node name="Head" type="Node3D" parent="." groups=["Player"]]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+unique_name_in_owner = true
+current = true
+
+[node name="InterractionController" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -2)
+script = ExtResource("2_0ll85")
+
+[node name="InteractText" type="Label" parent="Head/Camera3D/InterractionController"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = 16.0
+offset_right = 42.5
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="interact_sound" type="AudioStreamPlayer3D" parent="Head/Camera3D/InterractionController"]
+unique_name_in_owner = true
+stream = ExtResource("5_7qrpg")
+
+[node name="TextureRect" type="TextureRect" parent="Head/Camera3D"]
+self_modulate = Color(1, 1, 1, 0.588235)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_j51h5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="Head/Camera3D"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fry1x")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EquipOrigin" type="Node3D" parent="Head/Camera3D"]
+unique_name_in_owner = true
+
+[node name="FlashlightOrigin" type="Node3D" parent="Head/Camera3D"]
+unique_name_in_owner = true
+
+[node name="Flashlight_2" type="Node3D" parent="Head/Camera3D/FlashlightOrigin"]
+script = ExtResource("5_hui0s")
+flashlight_item_to_pickup = ExtResource("6_86um7")
+
+[node name="Node3D" type="Node3D" parent="Head/Camera3D/FlashlightOrigin/Flashlight_2"]
+
+[node name="flashlight2" parent="Head/Camera3D/FlashlightOrigin/Flashlight_2/Node3D" instance=ExtResource("6_qiqbu")]
+unique_name_in_owner = true
+transform = Transform3D(0.494778, 0.0720745, 3.15048e-09, 0, -2.18557e-08, 0.5, 0.0720745, -0.494778, -2.16274e-08, -0.265947, -0.2, -0.0445394)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D/FlashlightOrigin/Flashlight_2/Node3D/flashlight2"]
+unique_name_in_owner = true
+transform = Transform3D(1.98019, 5.90506e-14, 0.2808, 0.2808, -8.7423e-08, -1.98019, 1.22741e-08, 2, -8.65571e-08, 0.204862, 0.428182, 0.212811)
+light_color = Color(1, 0.949708, 0.75582, 1)
+light_volumetric_fog_energy = 0.0
+light_projector = ExtResource("7_1fqnq")
+light_specular = 0.2
+light_cull_mask = 4294443007
+shadow_enabled = true
+spot_range = 50.0
+spot_attenuation = 0.2
+spot_angle = 55.0
+
+[node name="flashlight sound" type="AudioStreamPlayer3D" parent="Head/Camera3D/FlashlightOrigin/Flashlight_2"]
+stream = ExtResource("10_6kg1b")
+volume_db = -5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_3qxwv")
+
+[node name="Inventory" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_fgrls")
+starter_items = Array[ExtResource("5_glmuj")]([ExtResource("14_lj7g7"), ExtResource("6_86um7")])
+
+[node name="InventoryWindow" type="Panel" parent="Inventory"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -50.0
+offset_right = 112.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="SlotContainerGrid" type="GridContainer" parent="Inventory/InventoryWindow"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -37.0
+offset_right = 100.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 5
+
+[node name="InventorySlotButton" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InventorySlotButton2" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InventorySlotButton3" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InventorySlotButton4" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InventorySlotButton5" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InventorySlotButton6" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InventorySlotButton7" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InventorySlotButton8" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InventorySlotButton9" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InventorySlotButton10" parent="Inventory/InventoryWindow/SlotContainerGrid" instance=ExtResource("5_0hc51")]
+layout_mode = 2
+
+[node name="InfoText" type="Label" parent="Inventory/InventoryWindow"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_vlayr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("10_o0fb4")
+post_death_action = 1
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.067
+anchor_right = 0.278
+anchor_bottom = 0.121
+offset_top = -0.0799999
+offset_right = 0.0399933
+offset_bottom = -0.0400009
+theme_override_styles/background = SubResource("StyleBoxFlat_7d1tn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yksdc")
+value = 45.85
+show_percentage = false
+script = ExtResource("11_vnwfp")
+
+[node name="HealthText" type="Label" parent="HealthBar"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5/5"
+label_settings = SubResource("LabelSettings_oiv11")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FallDamage" type="Node" parent="."]
+script = ExtResource("12_p1t7s")
+min_damage_velocity = -8.0
+damage_velocity_multiplier = 0.5
+
+[node name="EquipController" type="Node" parent="."]
+script = ExtResource("13_qqobi")
+
+[node name="footstep" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("18_fja0w")
+volume_db = -20.0
+unit_size = 5.66
+
+[node name="AmbienceController" type="Node3D" parent="."]
+
+[node name="Forest ambience" type="AudioStreamPlayer3D" parent="AmbienceController"]
+stream = ExtResource("21_0bea6")
+volume_db = -35.0
+autoplay = true
+
+[node name="House ambience" type="AudioStreamPlayer3D" parent="AmbienceController"]
+stream = ExtResource("22_df3vr")
+volume_db = -40.0
+
+[node name="sprint_slider" type="HSlider" parent="."]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_icons/grabber = SubResource("ImageTexture_owosu")
+theme_override_styles/slider = SubResource("StyleBoxLine_p6tnv")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_6emae")
+step = 0.0
+value = 22.23
+
+[node name="breathing_sound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+stream = ExtResource("25_ngi1q")
+volume_db = -20.0
+max_db = -5.0
+max_distance = 5.0

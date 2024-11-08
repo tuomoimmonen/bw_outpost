@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c48iu7kmjp2xv"]
+
+[ext_resource type="Script" path="res://Items/World Items/world_item.gd" id="1_8vsbq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ka435"]
+albedo_color = Color(0.369063, 0.165094, 0, 1)
+rim_enabled = true
+rim = 0.57
+
+[sub_resource type="SphereMesh" id="SphereMesh_mvnsq"]
+material = SubResource("StandardMaterial3D_ka435")
+radius = 0.25
+height = 0.5
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q3prp"]
+
+[node name="Worlditem_wood" type="RigidBody3D"]
+script = ExtResource("1_8vsbq")
+item_name = "Wood"
+interact_prompt = "Collect wood"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_mvnsq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_q3prp")

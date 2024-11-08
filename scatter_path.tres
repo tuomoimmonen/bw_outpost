@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ProtonScatterPathShape" load_steps=3 format=3 uid="uid://vu2l4il7jk1g"]
+
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="1_4abhr"]
+
+[sub_resource type="Curve3D" id="Curve3D_gnb7j"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -11.8034, 0, 13.6952, 0, 0, 0, 0, 0, 0, -11.6245, 0, 39.635, 0, 0, 0, 0, 0, 0, 9.30631, 0, 43.7496, 0, 0, 0, 0, 0, 0, 31.7985, 0, 40.4341, 0, 0, 0, 0, 0, 0, 40.8818, 0, 21.154, 0, 0, 0, 0, 0, 0, 39.0618, -3.8147e-06, 1.49369, 0, 0, 0, 0, 0, 0, 37.1589, 0, -19.873, 0, 0, 0, 0, 0, 0, 46.9055, 0, -26.7737, 0, 0, 0, 0, 0, 0, 32.0935, 0, -37.8045, 0, 0, 0, 0, 0, 0, 18.8974, 7.62939e-06, -50.9793, 0, 0, 0, 0, 0, 0, -24.1653, 0, -56.3769, 0, 0, 0, 0, 0, 0, -69.0377, 0, -55.3978, 0, 0, 0, 0, 0, 0, -73.8543, 0, -29.6638, 0, 0, 0, 0, 0, 0, -59.7755, 0, -8.05462, 0, 0, 0, 0, 0, 0, -55.6351, 0, 18.668, 0, 0, 0, 0, 0, 0, -56.354, -7.62939e-06, 42.9842, 0, 0, 0, 0, 0, 0, -26.487, 0, 41.6267),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 17
+
+[resource]
+script = ExtResource("1_4abhr")
+closed = false
+thickness = 10.195
+curve = SubResource("Curve3D_gnb7j")

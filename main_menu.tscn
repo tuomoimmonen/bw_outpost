@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2v14wytvp5m"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_4hmcf"]
+[ext_resource type="Theme" uid="uid://8hk1826wuq1t" path="res://main_theme.tres" id="1_c8tcp"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4hmcf")
+
+[node name="background color" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0895275, 0.0100187, 1.50409e-09, 1)
+
+[node name="game_title_text" type="Label" parent="."]
+layout_mode = 2
+offset_left = 69.5
+offset_top = -4.0
+offset_right = 250.5
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c8tcp")
+text = "GAME TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="torkut_software_text" type="Label" parent="."]
+layout_mode = 2
+offset_left = 69.5
+offset_top = 222.0
+offset_right = 250.5
+offset_bottom = 244.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_c8tcp")
+theme_override_font_sizes/font_size = 15
+text = "TORKUT SOFTWARE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -110.5
+offset_right = 100.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Play button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_c8tcp")
+text = "PLAY"
+
+[node name="Settings button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_c8tcp")
+text = "SETTINGS"
+
+[node name="Quit button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_c8tcp")
+text = "QUIT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play button" to="." method="play"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit button" to="." method="quit"]

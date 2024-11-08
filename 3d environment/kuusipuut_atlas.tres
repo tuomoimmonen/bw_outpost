@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://qm2hll74eigm"]
+
+[ext_resource type="Texture2D" uid="uid://dpb81njpxkn7m" path="res://3d environment/kuusipuut_kuusipuut_atlas.png" id="1_2y86j"]
+[ext_resource type="Texture2D" uid="uid://jwjnjtqg8qve" path="res://3d environment/kuusipuut_kuusipuut_atlas_normal.png" id="2_66huw"]
+
+[resource]
+resource_name = "kuusipuut_atlas"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_2y86j")
+roughness = 0.5
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_66huw")
+texture_filter = 2

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct6arktls8884"]
+
+[ext_resource type="Script" path="res://Items/paper_object.gd" id="1_553bn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0uny4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dcwrc"]
+albedo_color = Color(0.735856, 0.333392, 0.399946, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6n06w"]
+material = SubResource("StandardMaterial3D_dcwrc")
+
+[node name="PaperObject" type="StaticBody3D"]
+script = ExtResource("1_553bn")
+interact_prompt = "Pickup Paper"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_0uny4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_6n06w")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://daobymgem2cax"]
+
+[ext_resource type="Script" path="res://Items/key.gd" id="1_kpns5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4q443"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muo67"]
+albedo_color = Color(0.857027, 0.599098, 7.70092e-07, 1)
+metallic = 0.55
+roughness = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0lq5x"]
+material = SubResource("StandardMaterial3D_muo67")
+
+[node name="Key" type="StaticBody3D"]
+script = ExtResource("1_kpns5")
+interact_prompt = "Pickup key"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_4q443")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_0lq5x")

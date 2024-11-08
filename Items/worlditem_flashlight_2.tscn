@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwkcyg61hcpmt"]
+
+[ext_resource type="Script" path="res://Items/World Items/world_item.gd" id="1_wb8um"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6ptg"]
+albedo_color = Color(0.728822, 0.728822, 0.728822, 1)
+metallic = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_em87d"]
+material = SubResource("StandardMaterial3D_p6ptg")
+radial_segments = 8
+rings = 2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dmokj"]
+height = 2.4
+radius = 0.8
+
+[node name="Worlditem_flashlight2" type="RigidBody3D"]
+script = ExtResource("1_wb8um")
+item_name = "Flashlight2"
+interact_prompt = "Pickup flashlight2"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("CylinderMesh_em87d")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.1, 0, 0, 0, 0.4, 0, 0.2, 0)
+mesh = SubResource("CylinderMesh_em87d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+shape = SubResource("CylinderShape3D_dmokj")

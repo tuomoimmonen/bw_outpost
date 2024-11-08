@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://crh3eo6feoio0"]
+
+[ext_resource type="Script" path="res://collectable.gd" id="1_xhkx5"]
+[ext_resource type="PackedScene" uid="uid://0riyfohjnjju" path="res://3d models/house assets/cat_collectable.tscn" id="2_jmqaa"]
+[ext_resource type="StyleBox" uid="uid://bch01ow85jktb" path="res://AI/text_box.tres" id="3_trlmu"]
+[ext_resource type="AudioStream" uid="uid://wqbiqb1s5fjs" path="res://audio/UI_Click_Aftertap_mono.wav" id="4_0050j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dwk0a"]
+size = Vector3(0.5, 1, 0.5)
+
+[node name="cat_collectable" type="StaticBody3D"]
+script = ExtResource("1_xhkx5")
+item_name = "Cat_collectable"
+interact_prompt = "Pickup strange object"
+
+[node name="button_sound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_0050j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25415, 0)
+shape = SubResource("BoxShape3D_dwk0a")
+
+[node name="cat_collectable" parent="." instance=ExtResource("2_jmqaa")]
+
+[node name="TextPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_trlmu")
+
+[node name="book_text" type="Label" parent="TextPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is something interesting text about the evidence
+"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="TextPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = 13.0
+offset_bottom = 38.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "CONTINUE"
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("3_trlmu")
+text = "CONTINUE"
+
+[connection signal="pressed" from="TextPanel/Button" to="." method="_on_button_pressed"]

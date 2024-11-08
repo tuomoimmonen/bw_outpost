@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d1lr317aeui7i"]
+
+[ext_resource type="Script" path="res://Items/item.gd" id="1_ot2dy"]
+[ext_resource type="PackedScene" uid="uid://crh3eo6feoio0" path="res://worldItem_cat_collectable.tscn" id="2_makp1"]
+
+[resource]
+script = ExtResource("1_ot2dy")
+display_name = "Strange object"
+max_stack_size = 3
+world_item_scene = ExtResource("2_makp1")
+can_drop = true

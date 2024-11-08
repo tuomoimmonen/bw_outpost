@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EquipItem" load_steps=5 format=3 uid="uid://lc015fgt20b7"]
+
+[ext_resource type="PackedScene" uid="uid://sreijsi61fcs" path="res://Items/equip_object_pistol.tscn" id="1_nnlib"]
+[ext_resource type="Script" path="res://Items/equip_item.gd" id="1_wv51w"]
+[ext_resource type="Texture2D" uid="uid://cwpuj5bgg7tej" path="res://Sprites/Näyttökuva 2024-09-19 191924.png" id="2_v4ug2"]
+[ext_resource type="PackedScene" uid="uid://cdjcxt5s0rhqu" path="res://Items/world_item_pistol.tscn" id="4_d5puf"]
+
+[resource]
+script = ExtResource("1_wv51w")
+equip_scene = ExtResource("1_nnlib")
+display_name = "Pistol"
+icon = ExtResource("2_v4ug2")
+max_stack_size = 1
+world_item_scene = ExtResource("4_d5puf")
+can_drop = false

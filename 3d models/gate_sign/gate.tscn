@@ -1,0 +1,219 @@
+[gd_scene load_steps=16 format=4 uid="uid://k4uj3kwj3s0l"]
+
+[ext_resource type="Script" path="res://3d models/gate_sign/gate.gd" id="1_ai2br"]
+[ext_resource type="Texture2D" uid="uid://dn4o56v0dk0gx" path="res://3d models/gate_sign/gateSigns_atlas_gateSign_atlas.png" id="1_qd1ur"]
+[ext_resource type="Texture2D" uid="uid://beqpu5ctssnx5" path="res://3d models/gate_sign/gateSigns_atlas_gateSign_atlas_normal.png" id="2_01w7u"]
+[ext_resource type="PackedScene" uid="uid://cgmbe5in8ghbq" path="res://3d models/gate_sign/gate_tolppa.tscn" id="2_uepp3"]
+[ext_resource type="AudioStream" uid="uid://cnn3jqjwi25ns" path="res://audio/GATE_Metal_Open_02_Dark_Short_stereo.wav" id="5_mltc3"]
+[ext_resource type="Texture2D" uid="uid://bkd6xxi0gsj33" path="res://decals/blackwood.PNG" id="6_b04v2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pv11v"]
+size = Vector3(0.526031, 2.70361, 0.551758)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mm5o6"]
+resource_name = "gateSign_atlas"
+cull_mode = 2
+albedo_texture = ExtResource("1_qd1ur")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_01w7u")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hfyaf"]
+_surfaces = [{
+"aabb": AABB(0, 0.134083, -0.13502, 1.21877, 2.86099, 0.278414),
+"format": 34896613377,
+"index_count": 372,
+"index_data": PackedByteArray("CgAiAA4ACgAmACIABwApACMABwACACkAAwAeAAEAAwAgAB4AJAATACgAJAARABMAGgAhABgAGgAdACEAIwAUAA0AIwApABQAMAA2ADwAMAAqADYAAQAoAAMAAQAkACgABgAWAAkABgAZABYAJgAJACIAJgAGAAkAJwAAAAUAJwAlAAAACAAfAAQACAAXAB8AFQAMAA8AFQASAAwACwAlACcACwAQACUAOAAtADoAOAArAC0APgA7AEAAPgA3ADsAPwAuADMAPwA5AC4ALAA1AC8ALAAxADUAMgBBADQAMgA9AEEAAgAEAAMABwAJAAgACgAMAAsADQAPAA4AEAASABEAEwAVABQAFgAYABcAGQAbABoAHAAeAB0AHwAhACAAKgAsACsALQAvAC4AMAAyADEAMwA1ADQANgA4ADcAOQA7ADoAPAA+AD0APwBBAEAAIwAJAAcAIwAiAAkABwAEAAIABwAIAAQAJQABAAAAJQAkAAEAJwAKAAsAJwAmAAoAKQATABQAKQAoABMADwAUABUADwANABQACwASABAACwAMABIAFQARABIAFQATABEADgAMAAoADgAPAAwAGAAZABoAGAAWABkAHAAaABsAHAAdABoAFwAhAB8AFwAYACEAIAAdAB4AIAAhAB0AAAAeABwAAAABAB4AHwADAAQAHwAgAAMABgAbABkABgAFABsAFgAIAAkAFgAXAAgADQAiACMADQAOACIAEAAkACUAEAARACQABQAmACcABQAGACYAAgAoACkAAgADACgAMAAsACoAMAAxACwAKwAvAC0AKwAsAC8ALgA1ADMALgAvADUANAAxADIANAA1ADEAPAAyADAAPAA9ADIAMwBBAD8AMwA0AEEAQAA9AD4AQABBAD0ANgA+ADwANgA3AD4APwA7ADkAPwBAADsAOgA3ADgAOgA7ADcAKgA4ADYAKgArADgAOQAtAC4AOQA6AC0AAAAbAAUAAAAcABsA"),
+"lods": [0.0503191, PackedByteArray("CgAiAA4ADgAMAAoADgAPAAwADQAPAA4ADQAOACIADQAiACMACgAJACIAFgAHAAkACgAWAAkACgAZABYAGAAWABkAGAAZABoAJwAKAAsACgAnABsACgAbABkABwApACMAIwApABQAIwAUAA0AIwAJAAcAIwAiAAkABwAEACkABAAoACkABAADACgABwAgAAQABwAWACAAFgAhACAAFgAYACEAAwAgAB4AIAADAAQAIAAhAB0AIAAdAB4AHgAoAAMAHgARACgAJQARAB4AJQAeABwAEAARACUAEQATACgAKQAoABMAKQATABQAEwAVABQAEAASABEAFQARABIAFQATABEAGgAhABgAGgAdACEAHAAdABoAHAAaABsAGQAbABoAHAAeAB0AJQAcABsAJQAbACcACwAlACcACwAQACUAMAA2AD4AMAAqADYANgA4AD4APgA4ADsAPgA7AEAAFQAMAA8AFQASAAwACwAMABIACwASABAACgAMAAsAPwAuADMAPwA6AC4APwA7ADoAPwBAADsALAA1AC8AMAA1ACwAMAAsACoALgAvADUALgA1ADMAKgAsADgAKgA4ADYAOAAsAC8AOAAvAC4AOgA4AC4AMAA/ADUAMwA1AD8APgA/ADAAQAA/AD4ADwAUABUADwANABQAOgA7ADgA"), 0.378863, PackedByteArray("EAAUAAMAFQAUABAAHgAQAAMAAwAhAB4AGwAhABgAGwAeACEAIgAUAA0AIgADABQAIgAWAAMAFgAhAAMAFgAYACEAMAA2AD4AMAAqADYAPgA2ADsAPgA7AEAACgAWACIADQAKACIACgAbABYAGwAKAAsAGAAWABsACwAeABsACwAQAB4APwAuADMAPwA6AC4APwA7ADoAPwBAADsAKgAsADYANgAsAC4AOgA2AC4AMAA/ADUAMwA1AD8APgA/ADAAQAA/AD4ACgAUABUACwAKABUACwAVABAACgANABQAMAAsACoAMAA1ACwALgAsADUALgA1ADMAOgA7ADYA")],
+"name": "gateSign_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 66,
+"vertex_data": PackedByteArray("C9IAAKiYAAAL0q8CPrQAAJ/MdNyomAAAC9I92D60AABY2BXbqJgAAAvSAACjXwAAC9KvAg1EAACfzHTco18AAFjYFdujXwAAC9I92A1EAABNBq8CDUQAAE0GAACjXwAAAACvAqNfAAAJBv//o18AAE0GHP0NRAAAAAAV/qNfAABNBgAAqJgAAE0GrwI+tAAAAACvAqiYAABNBhz9PrQAAAkG//+omAAAAAAV/qiYAACx+T/YDUQAALH5FdujXwAA//9m2KNfAACx+a8CDUQAAP//rwKjXwAAsfkAAKNfAACx+QAAqJgAAP//rwKomAAAsfmvAj60AACx+RXbqJgAALH5P9g+tAAA//9m2KiYAADfejvuDUQAAN96FfGjXwAA33qvAj60AADfegAAqJgAAN96rwINRAAA33oAAKNfAADfejvuPrQAAN96FfGomAAAzxkje2nkAADPGdN9//8AAIIT031p5AAAzxmEgf//AADPGTOEaeQAAIIThIFp5AAAzxkje5UbAACCE9N9lRsAAM8Z030AAAAAzxkzhJUbAADPGYSBAAAAAIIThIGVGwAAeiIje2nkAADIKNN9aeQAAHoi033//wAAeiIzhGnkAAB6IoSB//8AAMgohIFp5AAAeiIje5UbAAB6ItN9AAAAAMgo032VGwAAeiIzhJUbAADIKISBlRsAAHoihIEAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vqsjk"]
+resource_name = "gateSigns_atlas_Cube_001"
+_surfaces = [{
+"aabb": AABB(0, 0.134083, -0.13502, 1.21877, 2.86099, 0.278414),
+"attribute_data": PackedByteArray("Xl3FS2zpIYpeXaZNXl2mTfxeAOaxxVJMscVSTLHFUkxeXQ7jXl0O45HHb0leXQ7jscXTSH5bC+WxxdNIflsL5bo/xUuK5SGKuj+mTbo/pk0cPgDmz8FSTM/BUkzPwVJMz8HTSJpBC+XPwdNImkEL5bo/DuO6Pw7j7r9vSbo/DuMBA6ZNAQOmTVHzpk0BA6ZNAQPFS4rlMl9w8cVLcPHFS3Dxpk0gAaZNcPGmTXDxpk3tAt7+z8Hvi+0C3v5w8d7+AQPa/AED2vwBA9r8AQPa/CABh/1w8Yf9IAGH/XDxh/0XmsVLbOkyXxeaxUuO7cVLF5qmTReapk0XmqZNF5qmTfibpk34m6ZNju2mTY7tpk0Xmtr8F5ra/Bea2vwXmtr8K5re/rHF74srmt7+ju3e/vibh/2O7Yf9+JuH/Y7th/2LSw/j7r9CP4tLD+OLSw/jz8FEQM/BREDPwURAi0sL5c/BsT1rTSrjz8GxPYrl3v6LS6ZNi0umTarj0JOLS6ZNiuUklWtNpk2K5SSViuUklYtLxUuK5XySiuV8korlfJKNUcVLbOl8kmzpfJJs6XySbOkkla1Ppk1s6SSVbOkklY1Rpk2NUaZNTevQk41Rpk2xxURAscVEQLHFRECNUQvljVEP45HHQj+NUQ/jjVEP47HFsT2tTyrjscWxPWzp3v6/JXHyvyVx8u6/oWe/JW/0z8GkaM/BpGjPwaRoWXemTVl3pk1Zd8VLbOnCd78lpk2/JaZNvyXFS4rlwndZd3HyWXdx8pHHoWdZd2/0scWkaLHFpGixxaRoNEWAIfkY7iU0RYAhFCojGohG1CKIRtQiiEbUIohG1CLcR4Ah3EeAITQoIxo0KCMaXEinJFxIpyRcSKckXEinJLBJ+yX1dcAnsEn7Jb4jIxqwSVMjsElTI54lIxqeJSMa8UtTI/kYQhjxS1MjFCrPJ/FL+yXxS/slNCjPJzQozydFTackRU2nJEVNpyRFTackbFDPJ/V1FBpsUM8nviPPJxhPeyYYT3smGE97JhhPeybETc8nxE3PJ54lzyeeJc8nYENTIyUX7iUlF+4lJRfuJX0U7iVgQ/slfRTuJX0U7iW0RKcktESnJNEVzye0RKck3EfPJy94wCcveMAnL3jAJ4hGeyaIRnsmI3mhKYhGeybBesAnNEXPJ8F6wCeqEu4lxE2AISUXQhglF0IYJRdCGBhP1CIYT9Qi0RVhFhhP1CJ9FEIYbFCAIX0UQhh9FEIYQFL7JS94FBoveBQaL3gUGsF6FBpAUlMjwXoUGqoSQhjsUKck7FCnJCN5MxjsUKckkcdvSVHzpk1w8cVL7QLe/nDx3v4XmsVLju3FSyua3v6O7d7++JuH/Y7th/2LSw/j7r9CP8/BsT2LS8VLi0vFS4rlfJJN69CTTevQk7HFsT2tTyrj7r+hZ9xHgCE0KCMasEn7JfFLUyNsUM8nxE3PJ54lzydgQ1MjYENTIyUX7iWIRnsmI3mhKcF6wCd9FEIYfRRCGGxQgCFAUvslL3gUGsF6FBpAUlMjscXTSAEDpk1w8cVLcPGmTQED2vwBA9r8IAGH/XDxh/0XmqZNF5qmTY7tpk0Xmtr8F5ra/Cua3v74m4f9ju2H/YtLD+Puv0I/z8GxPYtLpk2LS6ZNiuUklYrlfJJs6XySbOkklY1Rpk2NUQ/jjVEP45HHQj+xxbE9vyVx8s/BpGjcR4AhNCgjGrBJ+yWwSVMjniUjGvFLUyNsUM8nxE3PJ54lzyclF+4ltESnJLREpyS0RKck0RXPJ4hGeyaIRnsmI3mhKcF6wCd9FEIYfRRCGGxQgCFAUvslL3gUGsF6FBpAUlMj"),
+"format": 34896613399,
+"index_count": 372,
+"index_data": PackedByteArray("IACAADAAIACLAIAAFwCVAIYAFwAHAJUACABwAAIACAB4AHAAhwBEAI8AhwA8AEQAYwB/AFsAYwBvAH8AhABJAC0AhACTAEkArwDHAN8ArwCXAMcAAgCPAAgAAgCHAI8AEgBQABwAEgBcAFAAiwAcAIAAiwASABwAjgABABEAjgCKAAEAGAB0AAwAGABUAHQATwArADcATwBDACsAJQCKAI4AJQA5AIoAzgCiANYAzgCaAKIA6QDdAPEA6QDNAN0A6wCnALsA6wDTAKcAoQDFAK0AoQC1AMUAtgDyAL4AtgDiAPIABAANAAkAFAAdABkAIgAoACYALgA0ADIAOgBAAD4ARgBMAEoAUQBYAFUAXgBmAGAAagByAGwAdQB8AHkAmACeAJwApACqAKgAsAC4ALIAvADCAMAAyADQAMoA1ADaANgA4ADmAOQA7AD0AO4AhQAeABYAhQCCAB4AFQAOAAUAFQAaAA4AiQADAAAAiQCIAAMAjQAhACQAjQCMACEAkgBFAEgAkgCQAEUANQBLAE0ANQAvAEsAJwBCADsAJwAqAEIATgA/AEEATgBHAD8AMwApACMAMwA2ACkAWQBfAGEAWQBSAF8AawBiAGcAawBuAGIAVgB+AHYAVgBaAH4AegBtAHMAegB9AG0AAABxAGgAAAADAHEAdwALAA8AdwB7AAsAEwBkAF0AEwAQAGQAUwAbAB8AUwBXABsALACBAIMALAAxAIEAOACIAIkAOAA9AIgAEACMAI0AEAATAIwABgCRAJQABgAKAJEAsQCgAJkAsQC0AKAAnQCrAKUAnQCfAKsAqQDEAL0AqQCsAMQAwQCzALkAwQDDALMA3gC3AK4A3gDjALcAugDzAOoAugC/APMA7wDlAOcA7wD1AOUAyQDoAOEAyQDMAOgA7QDcANUA7QDwANwA2QDLANEA2QDbAMsAlgDPAMYAlgCbAM8A0gCjAKYA0gDXAKMAAQBlABEAAQBpAGUA"),
+"lods": [0.0503191, PackedByteArray("IQE+ASQBJAEpACEBJAEmASkALAAmASQBLAAlAT4BLAA+AYMAIQEcAD4BMAEUABwAIQEwARwAIQEzATABWQAwATMBWQAzAWEAjQAhASQAIQGNAGQAIQFkADQBFQCTAD8BPwGTAEkAPwFJAC0APwEeABUAPwGCAB4AFQAgAZMAIAGRAJMAIAEKAJEAFQA8ASABFQAxATwBMQE9ATwBMQEyAT0BCAA6ATkBOwEIAA0AOgF9AG0AOgFtADkBOQGPAAgAOQEoAY8AiQAoATkBiQA5AWgAOAAoAYkAKAErAY8AkgCPACsBkgArAS0BKwEuAS0BOABAACkBLgEpAUAALgEsASkBNQF/AFsANQE4AX8ANwE4ATUBNwE1ATYBXgA2AWAANwFyAGwAigA3AWUAigBlAI4AJQCKAI4AJQA5AIoArwBJAVIBrwCXAEkBSQFNAVIBUwFNAd0AUwHdAPEALwEjAScBLwEqASMBIgEjASoBIgEqATsAIgAoACIBVgGnALsAVgFQAacAVgFRAVABVgFXAVEBQQFIAUQBsQBIAUEBsQBBAZkAqQBEAcQAqQDEAL0AlgBAAUoBlgBKAcYASwFAAUMBSwFDAUIBTwFLAUIBRQFVAUcBRgFHAVUBVAFVAUUBWAFVAVQBNQBLAE0ANQAvAEsATgHbAEwB"), 0.378863, PackedByteArray("+wD9AAgA/wD9APsAcAD7AAgACAAKAXAABgF/AFsABgEHAX8ACwFJAC0ACwH2AEkACwECAfYAAgEJAfYAAgEDAQkBrwDHABkBrwCXAMcAGQEVAd0AGgHdAPEAIAABAYAA+QAgAIAAIAAEAQEBBAEgACQAWQABAQUBJQAIAWUAJQA5AAgBHQGnALsAHQEXAacAHQEYARcBHQEeARgBlgAMARMBEwEMAQ4B1gATAQ4BDwEcAREBEAERARwBGwEcAQ8BHwEcARsB9wBLAAAB+AD3AAAB+AAAAfwA9wD6AP4AsQANAZkAsQASAQ0BqQANARIBqQDEAL0AFgHbABQB")],
+"material": SubResource("StandardMaterial3D_mm5o6"),
+"name": "gateSign_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 345,
+"vertex_data": PackedByteArray("C9IAAKiY//8L0gAAqJhU1QvSrwI+tP//C9KvAj60//+fzHTcqJht/Z/MdNyomODbn8x03KiYo9mfzHTcqJjZ4gvSPdg+tP//C9I92D60bf0L0j3YPrSj2QvSPdg+tP//WNgV26iYVNVY2BXbqJht/VjYFduomODbWNgV26iY//8L0gAAo1//3wvSAACjX1TVC9KvAg1E//8L0q8CDUT/35/MdNyjX1Pmn8x03KNf4NufzHTco1+e75/MdNyjX9niWNgV26NfVNVY2BXbo19T5ljYFdujX+DbWNgV26NfJ+EL0j3YDUT//wvSPdgNRFPmC9I92A1Enu8L0j3YDUQn4U0GrwINRP//TQavAg1E/99NBq8CDUTi6E0GrwINRP//TQYAAKNf/99NBgAAo19U1U0GAACjX+LoTQYAAKNfqukAAK8Co1/i6AAArwKjX///AACvAqNfqukAAK8Co1///wkG//+jX0riCQb//6NfetwJBv//o1/y5gkG//+jX63lTQYc/Q1E//9NBhz9DURK4k0GHP0NRPLmTQYc/Q1E//8AABX+o1/y5gAAFf6jX63lAAAV/qNf//8AABX+o1///00GAAComP//TQYAAKiYVNVNBgAAqJiH9k0GAAComKrpTQavAj60//9NBq8CPrT//00GrwI+tIf2TQavAj60//8AAK8CqJiH9gAArwKomP//AACvAqiYqukAAK8CqJj//00GHP0+tP//TQYc/T60+PtNBhz9PrR1+E0GHP0+tP//CQb//6iY+PsJBv//qJh63AkG//+omHX4CQb//6iYreUAABX+qJh1+AAAFf6omK3lAAAV/qiY//8AABX+qJj//7H5P9gNRP//sfk/2A1EnfSx+T/YDUT//7H5P9gNRCfhsfkV26NfVNWx+RXbo1+d9LH5FdujX6rpsfkV26NfJ+H//2bYo1+d9P//ZtijX/////9m2KNfqun//2bYo1///7H5rwINRP//sfmvAg1E/9+x+a8CDUSW8bH5rwINRP////+vAqNflvH//68Co1//////rwKjX6rp//+vAqNf//+x+QAAo1//37H5AACjX1TVsfkAAKNflvGx+QAAo1+q6bH5AAComP//sfkAAKiYVNWx+QAAqJi947H5AAComKrp//+vAqiYveP//68CqJj/////rwKomKrp//+vAqiY//+x+a8CPrT//7H5rwI+tP//sfmvAj60veOx+a8CPrT//7H5FduomFTVsfkV26iYEd6x+RXbqJiq6bH5FduomP//sfk/2D60//+x+T/YPrQR3rH5P9g+tP//sfk/2D60/////2bYqJgR3v//ZtiomP////9m2KiYqun//2bYqJj//996O+4NRP//33o77g1ESuLfejvuDUSe7996FfGjX0ri33oV8aNfetzfehXxo1+e7996FfGjX9ni33qvAj60///feq8CPrT//996AAComP//33oAAKiYVNXfeq8CDUT//996rwINRP/f33oAAKNf/9/fegAAo19U1d96O+4+tP//33o77j60+fvfejvuPrSj2d96FfGomPn733oV8aiYetzfehXxqJij2d96FfGomNnizxkje2nkQNzPGSN7aeT//88ZI3tp5L3jzxkje2nk/MXPGdN9////388Z033//0DczxnTff//vePPGdN9///i6IIT031p5L3jghPTfWnk4uiCE9N9aeT8xYIT031p5FTVzxmEgf///9/PGYSB//9A3M8ZhIH//73jzxmEgf//4ujPGTOEaeRA3M8ZM4Rp5P+/zxkzhGnkvePPGTOEaeSq6YIThIFp5L3jghOEgWnk4uiCE4SBaeSq6YIThIFp5FTVzxkje5UbvePPGSN7lRv//88ZI3uVG5Xxzxkje5Ub/MWCE9N9lRuV8YIT032VG4f2ghPTfZUb/MWCE9N9lRtU1c8Z030AAP//zxnTfQAAvePPGdN9AACV8c8Z030AAIf2zxkzhJUbvePPGTOElRv/v88ZM4SVG0DczxkzhJUbqunPGYSBAAD//88ZhIEAAL3jzxmEgQAAQNzPGYSBAACH9oIThIGVG0DcghOEgZUbh/aCE4SBlRuq6YIThIGVG1TVeiIje2nkQNx6IiN7aeT//3oiI3tp5L3jeiIje2nkqunIKNN9aeS948go031p5OLoyCjTfWnkqunIKNN9aeRU1Xoi033////feiLTff//QNx6ItN9//+943oi033//+LoeiIzhGnkQNx6IjOEaeT/v3oiM4Rp5JaxeiIzhGnk/MV6IoSB////33oihIH//0DceiKEgf//lrF6IoSB///i6MgohIFp5JaxyCiEgWnk4ujIKISBaeT8xcgohIFp5FTVeiIje5UbveN6IiN7lRv//3oiI3uVG5bxeiIje5Ubqul6ItN9AAD//3oi030AAL3jeiLTfQAAlvF6ItN9AACH9sgo032VG5bxyCjTfZUbh/bIKNN9lRuq6cgo032VG1TVeiIzhJUbveN6IjOElRv/v3oiM4SVG0DceiIzhJUb/MXIKISBlRtA3MgohIGVG4f2yCiEgZUb/MXIKISBlRtU1XoihIEAAP//eiKEgQAAveN6IoSBAABA3HoihIEAAIf2C9I92D60p+BNBq8CDUS47k0GAACjX4HgCQb//6Nf//8JBv//o1///00GAAComP//TQYAAKiY//8JBv//qJj//wkG//+omP//AAAV/qiY//8AABX+qJj//7H5P9gNRKX4sfk/2A1EJ9n//2bYo1914rH5AACjX//vsfkAAKNfqumx+QAAo1/1+rH5rwI+tP//sfmvAj60yNz//2bYqJhg6v//ZtiomGjq33o77g1EEdeCE9N9aeSn4YIT031p5PzFzxkzhGnkwuHPGSN7lRv//88ZM4SVG///ghOEgZUb//+CE4SBlRuq6XoiI3tp5JfYeiIje2nkKOl6IiN7aeT//3oihIH//2fleiKEgf//jr/IKISBaeTRw8go032VG2rpyCjTfZUbq+nIKNN9lRv//3oiM4SVG///eiIzhJUbib7IKISBlRv8xcgohIGVG///WNgV26iY9tVNBq8CDURo800GAACjX2XZAACvAqNfAttNBhz9DUTa7k0GHP0NRMfgAAAV/qNfxu8AABX+o1///00GrwI+tP//TQavAj60//8AAK8CqJjR8E0GHP0+tP//TQYc/T60//8JBv//qJjG9QAAFf6omP//AAAV/qiY//+x+T/YDUQn9rH5P9gNRMPj//9m2KNf2eWx+a8CDUTR8LH5rwINRP/f//+vAqNfC+Kx+QAAo1///7H5AAComHbf//+vAqiY//+x+a8CPrT//7H5P9g+tP//sfk/2D60//+x+T/YPrTX4f//ZtiomJP533o77g1Ed/DfehXxo1+H6YIT031p5I3ighPTfWnkdMbPGTOEaeQn3oIThIFp5K/ighOEgWnkqunPGSN7lRv//88ZM4SVG///ghOEgZUb//+CE4SBlRt96XoiI3tp5P//eiLTff//aOR6ItN9//9O4Xoi033//wTleiLTff//pud6IoSB//8E5XoihIH//7TheiKEgf//OsDIKISBaeSnxMgo032VG5XoyCjTfZUbq+nIKNN9lRv//3oiM4SVG///eiIzhJUbr77IKISBlRv8xcgohIGVG////3+CWqoqVNX/f/9//3+CWhmJWJ1TrlajYaH+ks6xYZz/f/9/GYlYnWGh/pKU2wAAqqqqqhmJWJ1Trlaj/39qpAAA/3+qKlTV////fwAA/3/G8MGDU65Wo5u/TqTOsWGcqqqqqsbwwYNTrlaj/P/5f/7//3/G8MGDm79OpPv/+X////9/AAD/fzItGHX//3ylAAD/f6oqVNUyLRh1+koJajItGHX//3yl+koJav8//39l67yFo662orz29lpN5icz////f2XrvIW89vZa//98pbz29lpN5icz//98pf8//3//f4JaqipU1WNhgmj6Sglq/3//f/9/glpjYYJoglr/f2NhgmiCWv9/+koJav8//3//f/9/notkoPPl2ReCWv9/notkoKOutqLz5dkXTeYnM/Pl2RdN5iczglr/f/8//3/+//9/tr7Nn4Ha/3/+//1/qqqqqra+zZ8EtfWV/v8BgLa+zZ+B2v9/BLX1lf+//3////9/AAD/f3EbvL2B2v9/cRu8vYHa/3/2FfrK/7//fwAA/3+qKlTVcRu8vfYV+sr/f4JaqipU1dcPvtn2FfrK1w++2Xyl/3/2FfrK/7//f/9//3//f4Ja1w++2Xyl/3+qqqqq/qcTjQS19ZWU2wAA/3//f/6nE418pf9/lNsAAP6nE418pf9/BLX1lf+//3////9/Z+u6hZu/TqRn67qFo662opu/TqTOsWGc/3//f/9/glr/f4JaqipU1f///38AAP9/AAD/f6oqVNX/f/9/notloGGh/pKei2Wgo662omGh/pLOsWGcjSAl7/9//z++2Sfw/jn+nP////+NICXvvtkn8Bj1st2+2SfwGPWy3f45/pxUVaqq/////3Hf2RAm8EEmGPWy3XHf2RD///9/JvBBJglqBLUm8EEmGPWy3QlqBLVUVaqqGTa+Wf9//z+9PY1k/jn+nL09jWSC6Bi2/jn+nFRVqqqB2nylGTa+Wb09jWSC6Bi25clApv///39x32exCWoEtYHafKXlyUCmcd9nsYLoGLZx32exgugYtglqBLVUVaqqjSAl7/9//z/Xj75Z9ZX6StePvlnmCkwi9ZX6SqqqVFX/////jSAl79ePvlnmCkwicd/ZEP///3/NuQ5oAMYAY/////9x39kQzbkOaOYKTCLNuQ5o5gpMIgDGAGOqqlRVGTa+Wf9//z9xm7099ZX6SoHafKUZNr5ZcZu9PXwX5klxm709fBfmSfWV+kqqqlRV5clApv///3+WznFfAMYAY5bOcV98F+ZJAMYAY6qqVFWB2nyl5clAppbOcV98F+ZJrqKjlv9//v//f////3/+//9/AAD/f////z//f/5/+P//fwAA+3/w//9/AAD/fwAAesYunxvUWI4AAP9//38AAP9///8REjswtCYO5QWnlZP/f/7/xczRmuDjzvRkR+uo5/G2E/9/fRf/f4Logdp8pQNUFrH4K/r95Qa+JY6uji7RIlUdTMfmaAHFamMZmspKSK+3UP9/guj/f4LolOeVZwDGAGP/f4LohK0Yoj8SPpI4J/J+fUA5oZi0Zst473lvyvdIpP8//3//f8Nq5YwZ86RHtXCVf5X//3///5p9zdRZzzPu/z//f1vUXFSoxWmd/dBHkP9/AAAAAP9/7kWmTHMYd82CGxLO/QjnNTeCNwL/fwAA/38j/lSiQ5q1sySFXe9db7uubKAF3YPsJUcDqcDoNRX+72Ei2lyYtP9/fRf/f4Logdp8pYNNDK+1lbUVyAYO+F/vp/A7I8QcN5s6TjsjxBz//5X2I8qLa2XFQGNYkbtOpqxAT/9/guj/f4Lodeh1aADGAGP/f4Lo")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hfyaf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w74hi"]
+size = Vector3(1.21338, 2.93842, 0.126953)
+
+[sub_resource type="Animation" id="Animation_hvl8e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gate_hinge2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gate_hinge:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vaqnv"]
+resource_name = "close_gate"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gate_hinge2:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.28827, 0), Vector3(0, 4.28827, 0), Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gate_hinge:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.0472, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_daiwi"]
+resource_name = "open_gate"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gate_hinge2:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 4.28827, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gate_hinge:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -1.0472, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c2r78"]
+_data = {
+"RESET": SubResource("Animation_hvl8e"),
+"close_gate": SubResource("Animation_vaqnv"),
+"open_gate": SubResource("Animation_daiwi")
+}
+
+[node name="gate_object" type="Node3D"]
+
+[node name="gate tolppa" parent="." instance=ExtResource("2_uepp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018456, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="gate tolppa"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate tolppa/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50542, 1.29175, 0)
+shape = SubResource("BoxShape3D_pv11v")
+
+[node name="gate_hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23654, 0, 0)
+
+[node name="gate_mesh" type="MeshInstance3D" parent="gate_hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23654, 0, 0)
+mesh = SubResource("ArrayMesh_vqsjk")
+skeleton = NodePath("")
+
+[node name="gate_staticbody" type="StaticBody3D" parent="gate_hinge"]
+unique_name_in_owner = true
+script = ExtResource("1_ai2br")
+interact_prompt = "Interact"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate_hinge/gate_staticbody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630343, 1.60391, 0)
+shape = SubResource("BoxShape3D_w74hi")
+
+[node name="gate_sound" type="AudioStreamPlayer3D" parent="gate_hinge"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23654, 0, 0)
+stream = ExtResource("5_mltc3")
+max_distance = 5.0
+
+[node name="blackwood_decal" type="Decal" parent="gate_hinge"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.7, 2, 0.2)
+size = Vector3(1, 1, 1)
+texture_albedo = ExtResource("6_b04v2")
+modulate = Color(0.281075, 0, 0.00982943, 1)
+
+[node name="gate tolppa2" parent="." instance=ExtResource("2_uepp3")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0634555, 0, 5.32443e-08)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="gate tolppa2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate tolppa2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50542, 1.29175, 0)
+shape = SubResource("BoxShape3D_pv11v")
+
+[node name="gate_hinge2" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -1.28154, 0, -5.32443e-08)
+
+[node name="gate_mesh" type="MeshInstance3D" parent="gate_hinge2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23654, 0, 0)
+mesh = SubResource("ArrayMesh_vqsjk")
+skeleton = NodePath("")
+
+[node name="gate_staticbody2" type="StaticBody3D" parent="gate_hinge2"]
+unique_name_in_owner = true
+script = ExtResource("1_ai2br")
+interact_prompt = "Interact"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gate_hinge2/gate_staticbody2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630343, 1.60391, 0)
+shape = SubResource("BoxShape3D_w74hi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_c2r78")
+}

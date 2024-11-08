@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://brr0gklxcqs2m"]
+
+[ext_resource type="Texture2D" uid="uid://bo7mrkbx0olf1" path="res://decals/blood_spray.PNG" id="1_8pxq6"]
+
+[sub_resource type="Curve" id="Curve_72no8"]
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.192118, 1.82418), 0.82621, 0.82621, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hiooj"]
+curve = SubResource("Curve_72no8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ronpu"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -360.0
+angle_max = 360.0
+direction = Vector3(0, 0, -1)
+spread = 30.0
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+damping_max = 20.0
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_hiooj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihso8"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.558229, 0, 0.0484011, 1)
+albedo_texture = ExtResource("1_8pxq6")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_76ws1"]
+material = SubResource("StandardMaterial3D_ihso8")
+
+[node name="BloodParticles" type="GPUParticles3D"]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ronpu")
+draw_pass_1 = SubResource("QuadMesh_76ws1")

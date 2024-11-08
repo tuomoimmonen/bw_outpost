@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://uf4vlp5qdttw"]
+
+[ext_resource type="Script" path="res://Items/World Items/world_item.gd" id="1_ayjt2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swe8m"]
+albedo_color = Color(0.288602, 1, 0.58235, 1)
+rim_enabled = true
+rim = 0.41
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bc4bo"]
+material = SubResource("StandardMaterial3D_swe8m")
+radius = 0.1
+height = 0.5
+radial_segments = 6
+rings = 3
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j0am3"]
+radius = 0.2
+height = 1.0
+
+[node name="Worlditem_healthpack" type="RigidBody3D"]
+script = ExtResource("1_ayjt2")
+item_name = "Healthpack"
+interact_prompt = "Use healthpack"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_bc4bo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_j0am3")

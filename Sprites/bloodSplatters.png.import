@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://brrsljb41vuih"
+path="res://.godot/imported/bloodSplatters.png-0d418ee229693f50f1374b21c6d31808.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Sprites/bloodSplatters.png"
+dest_files=["res://.godot/imported/bloodSplatters.png-0d418ee229693f50f1374b21c6d31808.ctexarray"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=2
+slices/vertical=2

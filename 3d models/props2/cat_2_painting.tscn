@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=4 uid="uid://dl3iv6f4y03mx"]
+
+[ext_resource type="Script" path="res://3d models/props2/cat_2_painting.gd" id="1_8nk4g"]
+[ext_resource type="Texture2D" uid="uid://cv0tavw1d3m6b" path="res://3d models/props2/props2_props2_atlas_with_blood.png" id="1_wrfus"]
+[ext_resource type="Texture2D" uid="uid://d3v4gq33ol3a8" path="res://3d models/props2/props2_props2_atlas_with_blood_normal.png" id="2_xxrm4"]
+[ext_resource type="StyleBox" uid="uid://bch01ow85jktb" path="res://AI/text_box.tres" id="3_ilouq"]
+[ext_resource type="AudioStream" uid="uid://wqbiqb1s5fjs" path="res://audio/UI_Click_Aftertap_mono.wav" id="5_irqwf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfa84"]
+size = Vector3(1, 1, 0.149414)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m86ci"]
+resource_name = "props2_atlas"
+cull_mode = 2
+albedo_texture = ExtResource("1_wrfus")
+roughness = 0.8
+normal_enabled = true
+normal_texture = ExtResource("2_xxrm4")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2gojh"]
+_surfaces = [{
+"aabb": AABB(-0.489274, -0.5, -0.0471314, 0.978548, 1, 0.0942627),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("CQAIAAwACQANAAgADAABAAAADAAIAAEACQAFAAIACQAOAAUACAADAAEACAANAAMACgAHAAQACgAPAAcACwAAAAYACwAMAAAACwAKAA4ACwAPAAoACQALAA4ACQAMAAsABgAEAAcABgAFAAQAAwAAAAEAAwACAAAAAgAGAAAAAgAFAAYABgAPAAsABgAHAA8ABAAOAAoABAAFAA4AAgANAAkAAgADAA0A"),
+"lods": [0.159216, PackedByteArray("DgAIAAwADgANAAgADAAKAA4ADAAPAAoADAABAAYADAAIAAEABgAPAAwABgAHAA8ACAADAAEACAANAAMACgAHAAQACgAPAAcABgAEAAcABgACAAQAAwACAAYAAwAGAAEABAAOAAoABAACAA4AAgANAA4AAgADAA0A")],
+"name": "props2_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("OwX/////AAAAAP//rskAADsF//8AAAAAAAD//1A2AAD/////UDYAAMP6//8AAAAAw/r/////AAD/////rskAAAAAAACuyQAAOwUAAAAAAAD//wAAUDYAAMP6AAD//wAAOwUAAP//AAAAAAAAUDYAAMP6AAAAAAAA//8AAK7JAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v8sah"]
+resource_name = "props2_Cube_010"
+_surfaces = [{
+"aabb": AABB(-0.489274, -0.5, -0.0471314, 0.978548, 1, 0.0942627),
+"attribute_data": PackedByteArray("p8B/xZ3sPB+nwH/FNu2iHkHBf8Vl8Qli3SaDVnDvPB/dJoNW1u6iHkMmg1YG8wli1u7zO5dDg1Yw8pCj/UKDVnDvWjv9QoNWh6R/xZ3sWjuHpH/FNu3zO+2jf8XQ85CjFO3//0HBiadl8RNE3SaNOE7vZf/dJo04tO6t4pdDjTgw8pqFh6SJp3vsR+OHpImnp8CJp3vsZf+nwImntO7//0MmjTgG8xNE/UKNOE7vR+P9Qo04FO2t4u2jiafQ85qFQcF/xd0mg1aXQ4NWh6R/xafAiadDJo04/UKNOO2jiac="),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("HAAYACUAHAAnABgAJgAEAAIAJgAZAAQAGwAPAAYAGwAqAA8AGgALAAUAGgApAAsAIAAXAA4AIAAvABcAIQAAABIAIQAkAAAAIgAeACsAIgAtAB4AHAAiACsAHAAlACIAEwAMABUAEwAQAAwACQABAAMACQAHAAEABwATAAEABwAQABMAFAAuACMAFAAWAC4ADQAsAB8ADQARACwACAAoAB0ACAAKACgA"),
+"lods": [0.159216, PackedByteArray("KwAYACUAKwAnABgAJQAeACsAJQAtAB4ANAAwADMANAAZADAAMwA3ADQAMwAWADcAGgALAAUAGgApAAsAIAAXAA4AIAAvABcAEwAMABUAEwAHAAwACQAHABMACQATAAMAMgA2AB8AMgAxADYAMQA1ADYAMQAKADUA")],
+"material": SubResource("StandardMaterial3D_m86ci"),
+"name": "props2_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("OwX///////87Bf////9U1TsF////////AAD//67JVNUAAP//rsn//wAA//+uyf//OwX//wAA//87Bf//AABU1TsF//8AAP//AAD//1A2VNUAAP//UDb//wAA//9QNv///////1A2VNX/////UDb///////9QNv//w/r//wAA///D+v//AABU1cP6//8AAP//w/r////////D+v////9U1cP6/////////////67JVNX/////rsn///////+uyf//AAAAAK7JVNUAAAAArsn//wAAAACuyf//OwUAAAAA//87BQAAAABU1TsFAAAAAP////8AAFA2VNX//wAAUDb/////AABQNv//w/oAAP/////D+gAA//9U1cP6AAD/////OwUAAP////87BQAA//9U1TsFAAD/////AAAAAFA2VNUAAAAAUDb//wAAAABQNv//w/oAAAAA///D+gAAAABU1cP6AAAAAP////8AAK7JVNX//wAArsn/////AACuyf//AAD//67J2ew7Bf//AACl+P////9QNv//w/r///////87BQAA/////wAAAABQNv//w/oAAAAApfj//wAArsnZ7P9//39U1aoqglr/f1TVqiqCWv9//z//f////39U1aoq//98pVTVqir//3yl/z//f1TVqiqB2v9//7//f////39U1aoqgdr/f/9//39U1aoqfKX/f1TVqip8pf9//7//f1RVVFWCWv9//z//f////39UVVRV//98pVRVVFWB2v9//7//f/9//39UVVRVfKX/f/9//39UVVRVglr/f1RVVFX//3yl/z//f////39UVVRVgdr/f1RVVFV8pf9//7//f/9/AAD/f////3////9/AAD/f////38AAP9/AAD/f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2gojh")
+
+[node name="cat2_painting_object" type="StaticBody3D"]
+script = ExtResource("1_8nk4g")
+item_description = "Text about painting2"
+interact_prompt = "Interact"
+
+[node name="button_sound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_irqwf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_kfa84")
+
+[node name="cat2_painting" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_v8sah")
+skeleton = NodePath("")
+
+[node name="TextPanel" type="Panel" parent="cat2_painting"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_ilouq")
+
+[node name="book_text" type="Label" parent="cat2_painting/TextPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is something interesting text about the painting number2
+"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="cat2_painting/TextPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = 13.0
+offset_bottom = 38.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("3_ilouq")
+text = "CONTINUE"
+
+[connection signal="pressed" from="cat2_painting/TextPanel/Button" to="." method="_on_button_pressed"]

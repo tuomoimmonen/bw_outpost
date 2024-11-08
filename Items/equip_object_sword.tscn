@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvs2w3myoct1"]
+
+[ext_resource type="Script" path="res://Combat/equip_sword.gd" id="1_k6b0c"]
+[ext_resource type="PackedScene" uid="uid://dn7aipt4ao71t" path="res://Items/sword_item.tscn" id="2_8doxv"]
+
+[sub_resource type="Animation" id="Animation_d1v4u"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwordItem")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.3, -0.447892, -0.551443)
+
+[sub_resource type="Animation" id="Animation_8vobi"]
+resource_name = "attack"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwordItem")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.3, -0.447892, -0.551443, 0.2, 1, 0.3, -0.447892, -0.451443, 0.4, 1, 0.3, -0.447892, -0.551443, 0.5, 1, 0.3, -0.447892, -0.564776, 0.7, 1, 0.3, -0.447892, -0.551443)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SwordItem")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.0218097, -0.499524, 0.0377755, 0.865201, 0.2, 1, 0.351248, -0.475956, -0.15626, 0.790995, 0.4, 1, 0.0218097, -0.499524, 0.0377755, 0.865201, 0.5, 1, 0.0181224, -0.524628, 0.579592, 0.623306, 0.7, 1, 0.0218097, -0.499524, 0.0377755, 0.865201)
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_hit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ass0"]
+_data = {
+"RESET": SubResource("Animation_d1v4u"),
+"attack": SubResource("Animation_8vobi")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lvgyl"]
+radius = 0.3
+
+[node name="EquipObject_sword" type="Node3D"]
+script = ExtResource("1_k6b0c")
+
+[node name="SwordItem" parent="." instance=ExtResource("2_8doxv")]
+transform = Transform3D(0.498097, -0.0871557, -0.86273, 0.0435778, 0.996195, -0.0754791, 0.866025, 2.6077e-08, 0.5, 0.3, -0.447892, -0.551443)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_8ass0")
+}
+
+[node name="HitCollider" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+shape = SubResource("SphereShape3D_lvgyl")

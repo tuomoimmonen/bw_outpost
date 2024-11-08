@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds7qc043k7cpa"]
+
+[ext_resource type="Script" path="res://Items/inventory_slot.gd" id="1_xj74i"]
+[ext_resource type="Texture2D" uid="uid://bj3soxga8t4fa" path="res://Sprites/medkit64.png" id="2_a8uee"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iuxsa"]
+shadow_color = Color(0, 0, 0, 0.588235)
+
+[node name="InventorySlotButton" type="Button"]
+custom_minimum_size = Vector2(32, 32)
+script = ExtResource("1_xj74i")
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_a8uee")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Amount text" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "66"
+label_settings = SubResource("LabelSettings_iuxsa")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

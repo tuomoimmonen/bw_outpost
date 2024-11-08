@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://crq0m4jfu3n3o"]
+
+[ext_resource type="PackedScene" uid="uid://lr8orq651luk" path="res://3d models/bush5.glb" id="1_847lm"]
+[ext_resource type="Texture2D" uid="uid://vyk6tq15p842" path="res://3d models/bush5_bush5Texture_lowress.png" id="2_7uiw4"]
+[ext_resource type="Texture2D" uid="uid://ddv4oafabekoq" path="res://3d models/bush5Texture_lowress_normal.png" id="3_r2b4s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08qq3"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("2_7uiw4")
+normal_enabled = true
+normal_texture = ExtResource("3_r2b4s")
+
+[node name="bush52" instance=ExtResource("1_847lm")]
+
+[node name="bush5" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_08qq3")
+lod_bias = 0.001

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdjcxt5s0rhqu"]
+
+[ext_resource type="Script" path="res://Items/World Items/world_item.gd" id="1_feobc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n16rc"]
+albedo_color = Color(0.54099, 0.54099, 0.54099, 1)
+metallic = 0.44
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_trpq1"]
+material = SubResource("StandardMaterial3D_n16rc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_48c80"]
+albedo_color = Color(0.281187, 0.281187, 0.281187, 1)
+metallic = 0.44
+
+[sub_resource type="BoxMesh" id="BoxMesh_qlggh"]
+material = SubResource("StandardMaterial3D_48c80")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_680d4"]
+
+[node name="WorldItem_pistol" type="RigidBody3D"]
+script = ExtResource("1_feobc")
+item_name = "Pistol"
+interact_prompt = "Pickup pistol"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_trpq1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.25, -1.29904, 0, 0.433013, 0.75, 0, -0.570114, 0.747472)
+mesh = SubResource("BoxMesh_qlggh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_680d4")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dn35bwqlmtbqt"]
+
+[ext_resource type="Script" path="res://Items/item.gd" id="1_f8rjy"]
+[ext_resource type="Texture2D" uid="uid://bj3soxga8t4fa" path="res://Sprites/medkit64.png" id="1_oxn7c"]
+[ext_resource type="PackedScene" uid="uid://uf4vlp5qdttw" path="res://Items/World Items/worlditem_healthpack.tscn" id="3_p026y"]
+
+[resource]
+script = ExtResource("1_f8rjy")
+display_name = "Health Pack"
+icon = ExtResource("1_oxn7c")
+max_stack_size = 3
+world_item_scene = ExtResource("3_p026y")
+can_drop = true

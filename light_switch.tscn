@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://bssv013rpst7m"]
+
+[ext_resource type="Script" path="res://light_switch.gd" id="1_hgqy4"]
+[ext_resource type="Material" uid="uid://ta08a5pynr4d" path="res://Items/Item Data/flickering_light_no_emission.tres" id="2_pued8"]
+[ext_resource type="Material" uid="uid://cn6o0jusx5k3x" path="res://Items/Item Data/flickering_light_emission.tres" id="3_t6kow"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_abip6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnbim"]
+albedo_color = Color(0.863375, 0.663525, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fv34v"]
+material = SubResource("StandardMaterial3D_hnbim")
+size = Vector3(0.2, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1qua"]
+albedo_color = Color(0.298426, 0.585729, 3.85046e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3jjhc"]
+material = SubResource("StandardMaterial3D_j1qua")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="Animation" id="Animation_u6cn5"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.1, 0, 0)
+
+[sub_resource type="Animation" id="Animation_n8jml"]
+resource_name = "toggle"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.1, 0, 0, 0.5, 1, 0.0167031, 0, 0, 1, 1, 0.1, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6jt76"]
+_data = {
+"RESET": SubResource("Animation_u6cn5"),
+"toggle": SubResource("Animation_n8jml")
+}
+
+[node name="LightSwitch" type="StaticBody3D"]
+script = ExtResource("1_hgqy4")
+light_off_material = ExtResource("2_pued8")
+light_on_material = ExtResource("3_t6kow")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_abip6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fv34v")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+mesh = SubResource("BoxMesh_3jjhc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_6jt76")
+}

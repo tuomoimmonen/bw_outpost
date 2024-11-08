@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=4 uid="uid://dauufxtd6x1ys"]
+
+[ext_resource type="PackedScene" uid="uid://mjceah1ndl2g" path="res://3d environment/bush2.glb" id="1_uo4qf"]
+[ext_resource type="Texture2D" uid="uid://cg0gsrdy1jrud" path="res://3d environment/bush_atlas_normal.png" id="2_wf7g5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3olnq"]
+load_path = "res://.godot/imported/bush2_bush2_texture.png-29c28dd50034dc469841c49a79479058.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_swf2v"]
+resource_name = "bush2"
+transparency = 4
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_3olnq")
+roughness = 0.5
+normal_enabled = true
+normal_texture = ExtResource("2_wf7g5")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gam70"]
+_surfaces = [{
+"aabb": AABB(-1, -0.0322908, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcA"),
+"name": "bush2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP9/AAD//wAA/38AAAAA////fwAA//////9/AAD/fwAA//8AAP9/AAAAAAAA/3//////AAD/f///AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xrgjt"]
+resource_name = "bush2_Plane_025"
+_surfaces = [{
+"aabb": AABB(-1, -0.0322908, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("//z//Cv/K7///P8CK//TgP8C//zSwCu//wL/AtLA04D//P/8K78sP//8/wIrv9MA/wL//NOALD//Av8C0oDTAA=="),
+"format": 34896613431,
+"index_count": 12,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcA"),
+"material": SubResource("StandardMaterial3D_swf2v"),
+"name": "bush2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP9//7///wAA/3//vwAA////f/+///////9//7//fwAA//9U1f9/AAAAAFTV/3//////VNX/f///AABU1f9//3//f/9//3//f/9//3+qqlRVqqpUVaqqVFWqqlRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_gam70")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3n41"]
+
+[node name="bush22" instance=ExtResource("1_uo4qf")]
+
+[node name="bush2" parent="." index="0"]
+mesh = SubResource("ArrayMesh_xrgjt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_w3n41")

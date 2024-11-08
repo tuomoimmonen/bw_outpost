@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=4 uid="uid://crup3l4kl7xmu"]
+
+[ext_resource type="Material" uid="uid://qm2hll74eigm" path="res://3d environment/kuusipuut_atlas.tres" id="1_3qnem"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1fcpi"]
+_surfaces = [{
+"aabb": AABB(-4.39721, -0.112829, -4.39721, 8.79442, 12.8868, 8.79442),
+"format": 34896613377,
+"index_count": 102,
+"index_data": PackedByteArray("DAANAAEADQAOAAEADgAPAAEADwAQAAEABgAFAAcABgAIAAUAEAARAAEAEQAMAAEAAwAMABEAAwASAAwABQARABAABQADABEABwAQAA8ABwAFABAACQAPAA4ACQAHAA8ACwAOAA0ACwAJAA4AEgANAAwAEgALAA0ABAAHAAkABAAGAAcAAgAJAAsAAgAEAAkAAAALABIAAAACAAsACAADAAUACAAKAAMACgASAAMACgAAABIAEwAWABQAEwAVABYAFwAaABgAFwAZABoA"),
+"lods": [0.0705978, PackedByteArray("DgAHAAEABAAHAA4ABAAGAAcABwAFAAEABgAFAAcABgAIAAUABQARAAEACAARAAUACAAKABEAAgAOAAEAAgAEAA4AAAACAAEACgABABEACgAAAAEAEwAWABQAEwAVABYAFwAaABgAFwAZABoA")],
+"name": "kuusipuut_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 27,
+"vertex_data": PackedByteArray("/38AAENxAAD/f2Di/38AAMKMAACheAAAxniicdR7AADCjAAAXYcAAMZ4onEqhAAA/38AALuOAAD/f6JxVogAADxzAABdhwAAOIeicSqEAAA8cwAAoXgAADiHonHUewAA/3+O2qt+AAAlgY7aVX8AACWBjtqpgAAA/3+O2lOBAADZfo7aqYAAANl+jtpVfwAA/3+icah3AAAAAEY+/38AAP//Rj7/fwAAAAD///9/AAD//////38AAP9/Rj4AAAAA/39GPv//AAD/f///AAAAAP9//////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_unr8q"]
+resource_name = "kuusipuut_Cylinder_005"
+_surfaces = [{
+"aabb": AABB(-4.39721, -0.112829, -4.39721, 8.79442, 12.8868, 8.79442),
+"attribute_data": PackedByteArray("9EkkO/RJJDs93yT/aU/9lGlP/ZTx4CT/aU/9lG9c/ZTyTfw68k38Om9LY2hvS2NokF0naJBdJ2jH2zul808cO+fiW9Ln4lvSTlsnaE5bJ2g93x6l8eAepT3fS9I930vS8eBL0vHgS9Jn5DulcFr7OkjdW9JI3VvS8083aPNPN2j3R2o7bl77OtFOJWjRTiVo0U4laNFOJWgcT+CRHE/gkRxP4JEcT+CReE/dkXhP3ZF4T92ReE/dke3eB/zt3gf8pk/gkaZP4JE93wX8Pd8F/PHgBfzx4AX8QeEH/EHhB/xBXN+RQVzfke5O55HuTueRnVzfkZ1c35GPTDtoj0w7aI9MO2iPTDto66Z9PYJhfT3rplaKgmFWikNGGEjaABhIQ0b9lNoA/ZT0SSQ7aU/9lGlP/ZRvXP2U8k38Ok5bJ2jx4EvSnVzfkQ=="),
+"format": 34896613399,
+"index_count": 102,
+"index_data": PackedByteArray("JgAqAAMALAAwAAQALgAyAAIANAA2AAUAFQARABkAFQAaABEAOAA8AAcAOgAoAAYACgApADsACgBAACkAEgA9ADkAEgAMAD0AGAA3ADUAGAAQADcAHAAzAC8AHAAWADMAJAAxAC0AJAAeADEAPgArACcAPgAiACsADgAXAB0ADgAUABcACQAfACUACQAPAB8AAAAjAD8AAAAIACMAGwANABMAGwAhAA0AIABBAAsAIAABAEEAQgBFAEMAQgBEAEUARgBJAEcARgBIAEkA"),
+"lods": [0.0705978, PackedByteArray("LgAWAAIADgAWAC4ADgAUABYAUAAQAAUAFQAQAFAAFQAaABAATwBRAE0AGwA8AE8AGwAhADwATgAwAEsATgAPADAAAAAIAAMAIAADADoAIABKAEwAQgBFAEMAQgBEAEUARgBJAEcARgBIAEkA")],
+"material": ExtResource("1_3qnem"),
+"name": "kuusipuut_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 82,
+"vertex_data": PackedByteArray("/38AAENxGP//fwAAQ3H2/f9/YOL/f/T//39g4v9/d/z/f2Di/388/P9/YOL/f/T//39g4v9/Vfv/f2Di/38d/cKMAACheBj/wowAAKF4KP7GeKJx1Hu2/cZ4onHUe/b9xniicdR72/7GeKJx1HsK/8KMAABdh0D/wowAAF2HKP7GeKJxKoRR/8Z4onEqhED/xniicSqE2/7GeKJxKoQK//9/AAC7jkD//38AALuOQP//f6JxVohR//9/onFWiED//3+icVaIUf//f6JxVohA/zxzAABdh0D/PHMAAF2HCv84h6JxKoRR/ziHonEqhED/OIeicSqE+v04h6JxKoQo/jxzAAChePb9PHMAAKF4Cv84h6Jx1HvY/jiHonHUexj/OIeicdR7+v04h6Jx1Hso/v9/jtqrfnf8/3+O2qt+2P7/f47aq35V+/9/jtqrfrb9JYGO2lV/d/wlgY7aVX/Y/iWBjtpVfzz8JYGO2lV/+v0lgY7aqYD0/yWBjtqpgFH/JYGO2qmAPPwlgY7aqYD6/f9/jtpTgfT//3+O2lOBUf//f47aU4H0//9/jtpTgVH/2X6O2qmA9P/Zfo7aqYBR/9l+jtqpgB392X6O2qmA2/7Zfo7aVX9V+9l+jtpVf7b92X6O2lV/Hf3Zfo7aVX/b/v9/onGod9j+/3+icah3GP//f6JxqHe2/f9/onGod/b9AABGPv9//////0Y+/3///wAA////f/////////9/////f0Y+AAD///9/Rj7//////3///wAA////f/////////9/AABDcS78/39g4v9/Wt//f2Di/39r/P9/YOL/f1PbwowAAKF4odnGeKJxKoSv8v9/onFWiP//2X6O2lV/COAR41iCBv1XnTUF5BlV4jWD874ughtmNIXg/ZKc3/xvPhHjWIL4vxWAG/1EnQb9V52+/l8/8f54PwUCmhr4vxWAd2VTgmVlBIK+/l8/8f54PwUCmhplZQSCVAKIGgUCmhp3ZVOCZWUEgmVlBILx/ng/VAKIGgUCmhrfv0iA+L8VgAb9V53x/ng/AONtghHjWILfv0iA+L8VgFXiNYMA42yC4P2SnBv9RJ1V4jWDAONtgvO+LoLfv0iANQXkGVMCiBrzvi6C379IgDUF5BlTAogaG2Y0hXdlU4IbZjSFd2VTgt/8bz6+/l8/4P2SnBv9RJ3f/G8+vv5fPwDjbYIR41iCG/1EnQb9V53/f/9//3//f/9//3//f/9//z//f/8//3//P/9//z//f96NketVirULAY5Z63GPGwabhfIE/vXVOv528OO1oKgO")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1fcpi")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dykh"]
+size = Vector3(1, 3, 1)
+
+[node name="manty2" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_unr8q")
+skeleton = NodePath("")
+
+[node name="kuusi1" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="kuusi1"]
+shape = SubResource("BoxShape3D_6dykh")

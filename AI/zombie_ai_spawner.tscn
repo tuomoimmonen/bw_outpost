@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bolna8j0b3n6b"]
+
+[ext_resource type="Script" path="res://AI/zombie_ai_spawner.gd" id="1_7sg2c"]
+
+[node name="zombie_ai_spawner" type="Node3D"]
+script = ExtResource("1_7sg2c")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blavf5dxgf1e2"]
+
+[ext_resource type="PackedScene" uid="uid://bbyo01nf3ty87" path="res://3d models/house assets/power_unit.glb" id="1_yjjr5"]
+
+[node name="power_unit2" instance=ExtResource("1_yjjr5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

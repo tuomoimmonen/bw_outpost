@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxr3uxaqq673u"]
+
+[ext_resource type="PackedScene" uid="uid://cyh6nq5070ehp" path="res://3d models/brick_house_woodfloor.glb" id="1_q3fa2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ga8t"]
+size = Vector3(9, 0.105371, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwhkt"]
+size = Vector3(0.7, 3.8, 14)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vny26"]
+size = Vector3(0.7, 3.8, 14.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1oix3"]
+size = Vector3(0.7, 3.8, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgekq"]
+size = Vector3(0.7, 3.8, 3.2)
+
+[node name="brick_house_woodfloor2" instance=ExtResource("1_q3fa2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="brick_house_woodfloor" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="brick_house_woodfloor/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, -1)
+shape = SubResource("BoxShape3D_7ga8t")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="brick_house_woodfloor/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15, 1.88309, -0.9)
+shape = SubResource("BoxShape3D_hwhkt")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="brick_house_woodfloor/StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.15, 1.88309, -0.9)
+shape = SubResource("BoxShape3D_vny26")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="brick_house_woodfloor/StaticBody3D" index="3"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.38419e-07, 1.88309, -7.9)
+shape = SubResource("BoxShape3D_1oix3")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="brick_house_woodfloor/StaticBody3D" index="4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.25, 1.88309, 6.1)
+shape = SubResource("BoxShape3D_xgekq")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="brick_house_woodfloor/StaticBody3D" index="5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.25, 1.88309, 6.1)
+shape = SubResource("BoxShape3D_xgekq")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn7aipt4ao71t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dsxrx"]
+albedo_color = Color(0.82606, 0.82606, 0.82606, 1)
+metallic = 0.86
+metallic_specular = 0.87
+roughness = 0.57
+
+[sub_resource type="BoxMesh" id="BoxMesh_4y3uh"]
+material = SubResource("StandardMaterial3D_dsxrx")
+size = Vector3(0.1, 0.8, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fg05f"]
+albedo_color = Color(0.289287, 0.115032, 0.00368638, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2w5vd"]
+material = SubResource("StandardMaterial3D_fg05f")
+size = Vector3(0.1, 0.4, 0.15)
+
+[node name="SwordItem" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_4y3uh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = SubResource("BoxMesh_2w5vd")

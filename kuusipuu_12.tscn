@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=4 uid="uid://c1f57axa8w5b8"]
+
+[ext_resource type="PackedScene" uid="uid://dxw1wm6qyaa5d" path="res://3d environment/kuusipuu1.glb" id="1_28dqh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l4cop"]
+load_path = "res://.godot/imported/kuusipuu1_kuusipuu1_texture.png-1320da9b2ae5478a4bb104a160e5ac3d.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwbud"]
+resource_name = "kuusipuu1"
+transparency = 2
+alpha_scissor_threshold = 0.009
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_l4cop")
+roughness = 0.5
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1ovv2"]
+_surfaces = [{
+"aabb": AABB(-7.34356, 0.0101744, -7.34356, 14.6871, 23.6964, 14.6871),
+"format": 34896613377,
+"index_count": 54,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcADQAOAAkADgAPAAkADwAQAAkAEAANAAkACgALAAwACgAIAAsACwANABAACwAIAA0ADAAQAA8ADAALABAACgAPAA4ACgAMAA8ACAAOAA0ACAAKAA4A"),
+"name": "kuusipuu1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 17,
+"vertex_data": PackedByteArray("AABXF/9/AAD//1cX/38AAAAA////fwAA//////9/AAD/f1cXAAAAAP9/Vxf//wAA/3///wAAAAD/f/////8AAFpwAACYdwAA/3+pxRZ+AAB9hgAAcG4AAIF5AAC7jQAApI8AAJSEAACsfA2xtXwAAGCBDbHDegAAUoMNsXd/AACefg2xaYEAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rk2l5"]
+resource_name = "kuusipuu1_Plane_028"
+_surfaces = [{
+"aabb": AABB(-7.34356, 0.0101744, -7.34356, 14.6871, 23.6964, 14.6871),
+"attribute_data": PackedByteArray("/37/VP8C/1D/fv/+/wL/+v/+/1T/gP9Q//7//v+A//r/Dv9C//r/BP/6/07/BP8y/wT/IP8E/wr/BP9I/w7/OP/6/xT/+v8U/wT/Qv/6/z7/+v8+/wT/OP/6/yr/+v8o/x7/Cv8e/wr/Hv9I/x7/SP8e/x7/Hv8e/x7/Dv8e/w7/Hv8y/x7/Mv8e/yD/Hv8g/x7/NP8e/zT/Hv9E/x7/RA=="),
+"format": 34896613399,
+"index_count": 54,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAUABAAGAAcAGAAeAA0AHAAiAAwAIAAkAAsAJgAaAA4ADwASABUADwAIABIAFAAbACcAFAAKABsAFgAlACEAFgATACUAEAAjAB0AEAAXACMACQAfABkACQARAB8A"),
+"material": SubResource("StandardMaterial3D_pwbud"),
+"name": "kuusipuu1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AABXF/9/l/7//1cX/3+X/gAA////f5f+//////9/l/7/f1cXAAAA//9/Vxf//wD//3///wAAAP//f/////8A/1pwAACYdxTfWnAAAJh3sPVacAAAmHeAzf9/qcUWfge+/3+pxRZ+ZN7/f6nFFn5p9v9/qcUWfqLQfYYAAHBuFN99hgAAcG463n2GAABwbrD1gXkAALuNFN+BeQAAu43ywIF5AAC7jX/NpI8AAJSEFN+kjwAAlIT4wKSPAACUhDferHwNsbV8afasfA2xtXyj9ax8DbG1fKLQrHwNsbV8R81ggQ2xw3pk3mCBDbHDejDfYIENscN6afZggQ2xw3qk9VKDDbF3fwe+UoMNsXd/y8JSgw2xd39k3lKDDbF3fyPfnn4NsWmBB76efg2xaYGywp5+DbFpgaLQnn4NsWmBRM3/f/9//3//f/9//3//f/9/i0AXgYtAF4GLQBeBi0AXge1fCFBdRuy5b1xNpc2V/G84s+hSPUn/u/tcX6TtXwhQy7BFUFxG7LntXwhQvJMjb29cTaXtXwhQvJMlb8iwQFA9Sf+7kkYruvtcX6SEXH6lOLPoUsex9FE9Sf+7j0Ynus2V/G/Ok95vOLPoUrqx3VHNlfxvzZPUb/tcX6SFXIGl")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_1ovv2")
+
+[node name="kuusipuu12" instance=ExtResource("1_28dqh")]
+
+[node name="kuusipuu1" parent="." index="0"]
+mesh = SubResource("ArrayMesh_rk2l5")

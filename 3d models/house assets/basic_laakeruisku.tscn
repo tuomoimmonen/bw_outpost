@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs6fevjppsptp"]
+
+[ext_resource type="PackedScene" uid="uid://dcsofvsxurkjo" path="res://3d models/house assets/basic_ruisku.glb" id="1_el88o"]
+
+[node name="basic_laakeruisku" instance=ExtResource("1_el88o")]
+
+[node name="basic_ruisku" parent="." index="0"]
+transform = Transform3D(0.0252822, -0.999287, 0.0280253, 0.0355543, 0.0289154, 0.998949, -0.999048, -0.0242592, 0.03626, 0, 0.0659283, 0)

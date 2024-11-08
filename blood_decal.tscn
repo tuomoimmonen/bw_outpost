@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbmptdoh8bc04"]
+
+[ext_resource type="Texture2D" uid="uid://dyv8qmeoa3xl7" path="res://decals/blood_splat1.PNG" id="1_e1tbk"]
+[ext_resource type="Script" path="res://blood_decal.gd" id="2_a6x38"]
+
+[node name="blood_decal" type="Decal"]
+texture_albedo = ExtResource("1_e1tbk")
+modulate = Color(0.425353, 0, 0.088283, 1)
+script = ExtResource("2_a6x38")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+autostart = true

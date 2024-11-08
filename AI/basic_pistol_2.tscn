@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs67ch8ta6ntl"]
+
+[ext_resource type="PackedScene" uid="uid://dpue0qlu6quow" path="res://3d models/basic_pistol.glb" id="1_ue21n"]
+
+[node name="basic_pistol2" instance=ExtResource("1_ue21n")]
+
+[node name="basic_pistol" parent="." index="0"]
+layers = 1

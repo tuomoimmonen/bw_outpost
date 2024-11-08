@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://t5q0dpn8vih4"]
+
+[ext_resource type="Script" path="res://collectable.gd" id="1_6cepx"]
+[ext_resource type="PackedScene" uid="uid://c477h3sbty36q" path="res://vial_evidence.tscn" id="2_jnlc6"]
+[ext_resource type="StyleBox" uid="uid://bch01ow85jktb" path="res://AI/text_box.tres" id="3_yixp6"]
+[ext_resource type="AudioStream" uid="uid://wqbiqb1s5fjs" path="res://audio/UI_Click_Aftertap_mono.wav" id="4_pukq8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dwk0a"]
+size = Vector3(0.2, 0.9, 0.2)
+
+[node name="Collectable" type="StaticBody3D"]
+script = ExtResource("1_6cepx")
+item_name = "Collectable"
+item_description = "This is something interesting text about the evidence"
+interact_prompt = "Pickup evidence"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dwk0a")
+
+[node name="basic_vial" parent="." instance=ExtResource("2_jnlc6")]
+
+[node name="TextPanel" type="Panel" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_yixp6")
+
+[node name="book_text" type="Label" parent="TextPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is something interesting text about the evidence
+"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="TextPanel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = 13.0
+offset_bottom = 38.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "CONTINUE"
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = ExtResource("3_yixp6")
+text = "CONTINUE"
+
+[node name="button_sound" type="AudioStreamPlayer3D" parent="TextPanel/Button"]
+unique_name_in_owner = true
+stream = ExtResource("4_pukq8")
+
+[connection signal="pressed" from="TextPanel/Button" to="." method="_on_button_pressed"]

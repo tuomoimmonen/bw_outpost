@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://oogc07h6n1dv"]
+
+[ext_resource type="Script" path="res://Items/World Items/world_item.gd" id="1_8w4x8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2e8nl"]
+albedo_color = Color(0.021831, 0.736178, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_udfmq"]
+material = SubResource("StandardMaterial3D_2e8nl")
+height = 0.5
+radial_segments = 6
+rings = 3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_nhp4l"]
+
+[node name="Worlditem_ammo" type="RigidBody3D"]
+script = ExtResource("1_8w4x8")
+item_name = "Ammopack"
+interact_prompt = "Pickup ammo"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_udfmq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_nhp4l")

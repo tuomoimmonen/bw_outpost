@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EquipItem" load_steps=5 format=3 uid="uid://ucm87nu0pcue"]
+
+[ext_resource type="Texture2D" uid="uid://g246qn454hri" path="res://Sprites/Näyttökuva 2024-09-18 171003.png" id="1_01jx1"]
+[ext_resource type="Script" path="res://Items/equip_item.gd" id="1_aap1c"]
+[ext_resource type="PackedScene" uid="uid://dvs2w3myoct1" path="res://Items/equip_object_sword.tscn" id="3_04mni"]
+[ext_resource type="PackedScene" uid="uid://cf37cxs5rl0lw" path="res://Items/worlditem_sword.tscn" id="3_toyvk"]
+
+[resource]
+script = ExtResource("1_aap1c")
+equip_scene = ExtResource("3_04mni")
+display_name = "Sword"
+icon = ExtResource("1_01jx1")
+max_stack_size = 1
+world_item_scene = ExtResource("3_toyvk")

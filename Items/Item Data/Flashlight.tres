@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EquipItem" load_steps=5 format=3 uid="uid://dtskdn1qbeuuv"]
+
+[ext_resource type="Script" path="res://Items/equip_item.gd" id="1_k6p11"]
+[ext_resource type="PackedScene" uid="uid://dv40s18k1p5s" path="res://Items/flashlight_equip_object.tscn" id="1_nnr4d"]
+[ext_resource type="Texture2D" uid="uid://d1c3yua8x6bhw" path="res://Sprites/Näyttökuva 2024-09-18 203602.png" id="2_cs6nb"]
+[ext_resource type="PackedScene" uid="uid://flnd5nwl0ov7" path="res://Items/worlditem_flashlight.tscn" id="4_mfqjb"]
+
+[resource]
+script = ExtResource("1_k6p11")
+equip_scene = ExtResource("1_nnr4d")
+display_name = "Flashlight"
+icon = ExtResource("2_cs6nb")
+max_stack_size = 1
+world_item_scene = ExtResource("4_mfqjb")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://chjt6182i72s0"]
+
+[ext_resource type="Script" path="res://Items/item.gd" id="1_2maje"]
+[ext_resource type="Texture2D" uid="uid://cfcd7ighhyowy" path="res://Sprites/Näyttökuva 2024-09-21 154013.png" id="1_mnj08"]
+[ext_resource type="PackedScene" uid="uid://t5q0dpn8vih4" path="res://worldItem_collectable.tscn" id="3_ui40j"]
+
+[resource]
+script = ExtResource("1_2maje")
+display_name = "Evidence"
+icon = ExtResource("1_mnj08")
+max_stack_size = 3
+world_item_scene = ExtResource("3_ui40j")
+can_drop = false

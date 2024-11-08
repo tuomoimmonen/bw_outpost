@@ -1,0 +1,143 @@
+[gd_scene load_steps=10 format=4 uid="uid://ddj0vhf8ytk5l"]
+
+[ext_resource type="Texture2D" uid="uid://dpb81njpxkn7m" path="res://3d environment/kuusipuut_kuusipuut_atlas.png" id="1_6uykf"]
+[ext_resource type="Texture2D" uid="uid://jwjnjtqg8qve" path="res://3d environment/kuusipuut_kuusipuut_atlas_normal.png" id="2_5fldc"]
+
+[sub_resource type="Shader" id="Shader_djal8"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx, depth_prepass_alpha;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_nearest_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_nearest_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_nearest_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_nearest_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+group_uniforms wind;
+uniform sampler2D noise_tex;
+uniform float wind_speed = .1;
+uniform float wind_strength = .01;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+	vec3 GLOBAL_VERTEX = (MODEL_MATRIX * vec4(VERTEX, 1.)).xyz;
+
+	float offset = TIME * wind_speed;
+	float noise = texture(noise_tex, vec2(GLOBAL_VERTEX.x-offset)).r;
+	noise -= .5;
+	noise *= wind_strength;
+	VERTEX.xy += noise * length(VERTEX.y) * length(VERTEX.xz);
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = texture(texture_normal, base_uv).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+	ALPHA *= albedo.a * albedo_tex.a;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0gk43"]
+frequency = 0.005
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dys2j"]
+seamless = true
+noise = SubResource("FastNoiseLite_0gk43")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmlk1"]
+resource_name = "kuusipuut_atlas"
+render_priority = 0
+shader = SubResource("Shader_djal8")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.5
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/normal_scale = 0.5
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = ExtResource("1_6uykf")
+shader_parameter/texture_normal = ExtResource("2_5fldc")
+shader_parameter/wind_speed = 0.1
+shader_parameter/wind_strength = 0.01
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_dys2j")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qbp86"]
+_surfaces = [{
+"aabb": AABB(-3.89722, -0.1, -3.89722, 7.79444, 11.4215, 7.79444),
+"format": 34896613377,
+"index_count": 102,
+"index_data": PackedByteArray("DAANAAEADQAOAAEADgAPAAEADwAQAAEABgAFAAcABgAIAAUAEAARAAEAEQAMAAEAAwAMABEAAwASAAwABQARABAABQADABEABwAQAA8ABwAFABAACQAPAA4ACQAHAA8ACwAOAA0ACwAJAA4AEgANAAwAEgALAA0ABAAHAAkABAAGAAcAAgAJAAsAAgAEAAkAAAALABIAAAACAAsACAADAAUACAAKAAMACgASAAMACgAAABIAEwAWABQAEwAVABYAFwAaABgAFwAZABoA"),
+"lods": [0.0625582, PackedByteArray("DgAHAAEABAAHAA4ABAAGAAcABwAFAAEABgAFAAcABgAIAAUABQARAAEACAARAAUACAAKABEAAgAOAAEAAgAEAA4AAAACAAEACgABABEACgAAAAEAEwAWABQAEwAVABYAFwAaABgAFwAZABoA")],
+"name": "kuusipuut_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 27,
+"vertex_data": PackedByteArray("/38AAENxAAD/f2Di/38AAMKMAACheAAAxniicdR7AADCjAAAXYcAAMZ4onEqhAAA/38AALuOAAD/f6JxVogAADxzAABdhwAAOIeicSqEAAA8cwAAoXgAADiHonHUewAA/3+O2qt+AAAlgY7aVX8AACWBjtqpgAAA/3+O2lOBAADZfo7aqYAAANl+jtpVfwAA/3+icah3AAAAAEY+/38AAP//Rj7/fwAAAAD///9/AAD//////38AAP9/Rj4AAAAA/39GPv//AAD/f///AAAAAP9//////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dsfk6"]
+resource_name = "kuusipuut_Cylinder_004"
+_surfaces = [{
+"aabb": AABB(-3.89722, -0.1, -3.89722, 7.79444, 11.4215, 7.79444),
+"attribute_data": PackedByteArray("a1NbRWtTW0Xp6laKQVj9lEFY/ZTr7ST/QVj9lOHnJP/1VjhF9VY4RbpUdm26VHZt4ehn1+HoZ9fY56Y6u1hURWDuaddg7mnX4OZn1+DmZ9fp6ow6Wutlr+nqlmLp6pZipOxp16Tsadds7mWvG+Zery3ppGIt6aRiu1hObbtYTm2oUZpFpuler7pXPm26Vz5tulc+bbpXPm39VzuS/Vc7kv1XO5L9VzuSTlg4kk5YOJJOWDiSTlg4kqPqlIej6pSHd1g6kndYOpLp6pKH6eqSh9TtYPzU7WD8G+5g/BvuYPy452H8uOdh/NRXQZLUV0GSCuhh/AroYfy5VVJtuVVSbblVUm25VVJtJOY6Rp+oOkYk5laKn6hWijTQ/rqwkv66NNAk/7CSJP9rU1tFQVj9lEFY/ZTh5yT/9VY4ReDmZ9ek7GnXCuhh/A=="),
+"format": 34896613399,
+"index_count": 102,
+"index_data": PackedByteArray("JgAqAAMALAAwAAQALgAyAAIANAA2AAUAFQARABkAFQAaABEAOAA8AAcAOgAoAAYACgApADsACgBAACkAEgA9ADkAEgAMAD0AGAA3ADUAGAAQADcAHAAzAC8AHAAWADMAJAAxAC0AJAAeADEAPgArACcAPgAiACsADgAXAB0ADgAUABcACQAfACUACQAPAB8AAAAjAD8AAAAIACMAGwANABMAGwAhAA0AIABBAAsAIAABAEEAQgBFAEMAQgBEAEUARgBJAEcARgBIAEkA"),
+"lods": [0.0625582, PackedByteArray("LgAWAAIADgAWAC4ADgAUABYAUAAQAAUAFQAQAFAAFQAaABAATwBRAE0AGwA8AE8AGwAhADwATgAwAEsATgAPADAAAAAIAEsAIAADADoAIABKAEwAQgBFAEMAQgBEAEUARgBJAEcARgBIAEkA")],
+"material": SubResource("ShaderMaterial_cmlk1"),
+"name": "kuusipuut_atlas",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 82,
+"vertex_data": PackedByteArray("/38AAENxGP//fwAAQ3H2/f9/YOL/f/P//39g4v9/d/z/f2Di/388/P9/YOL/f/H+/39g4v9/Vfv/f2Di/38d/cKMAACheBj/wowAAKF4KP7GeKJx1Hu2/cZ4onHUe/b9xniicdR72/7GeKJx1HsK/8KMAABdh0D/wowAAF2HKP7GeKJxKoSU/8Z4onEqhKX/xniicSqE2/7GeKJxKoQK//9/AAC7jkD//38AALuOpf//f6JxVohR//9/onFWiED//3+icVaIlP//f6JxVoil/zxzAABdh6X/PHMAAF2HCv84h6JxKoRR/ziHonEqhED/OIeicSqE+v04h6JxKoQo/jxzAAChePb9PHMAAKF4Cv84h6Jx1HvY/jiHonHUexj/OIeicdR7+v04h6Jx1Hso/v9/jtqrfnf8/3+O2qt+2P7/f47aq35V+/9/jtqrfrb9JYGO2lV/d/wlgY7aVX/Y/iWBjtpVfzz8JYGO2lV/+v0lgY7aqYDz/yWBjtqpgFH/JYGO2qmAPPwlgY7aqYD6/f9/jtpTgfP//3+O2lOBUf//f47aU4Hx/v9/jtpTgZT/2X6O2qmA8f7Zfo7aqYCU/9l+jtqpgB392X6O2qmA2/7Zfo7aVX9V+9l+jtpVf7b92X6O2lV/Hf3Zfo7aVX/b/v9/onGod9j+/3+icah3GP//f6JxqHe2/f9/onGod/b9AABGPv9//////0Y+/3///wAA////f/////////9/////f0Y+AAD///9/Rj7//////3///wAA////f/////////9/AABDcS78/39g4v9/4uz/f2Di/39r/P9/YOL/f9rbwowAAKF4r9nGeKJxKoQ88f9/onFWiP//2X6O2lV/IOER41iCBv1XnTUF4xlV4jWD9L4ugiP7BRrg/ZKc3/xvPhHjWIL4vxWAG/1EnQb9V52+/l8/8f54PwUCmhr4vxWACP6hGlf+sxq+/l8/8f54PwUCmhpX/rMaVAKIGgUCmhoI/qEaV/6zGlf+sxrx/ng/VAKIGgUCmhrfv0iA+L8VgAb9V53x/ng/AONtghHjWILfv0iA+L8VgFXiNYMA422C4P2SnBv9RJ1V4jWDAONtgvS+LoLfv0iANQXkGVQCiBr0vi6C379IgDUF5BlUAogaI/sFGgj+oRoj+wUaCP6hGt/8bz6+/l8/4P2SnBr9RJ3f/G8+vv5fPwDjbYIR41iCG/1EnQb9V53/f/9//3//f/9//3//f/9//z//f/8//3//P/9//z//f96NkutQk1AXAY5Z6+aNnAWVhesEzPGpOJGHCP/Tn4EO")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qbp86")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5jyi"]
+margin = 0.1
+size = Vector3(0.6, 3, 0.6)
+
+[node name="manty1" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_dsfk6")
+skeleton = NodePath("")
+
+[node name="kuusi1" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="kuusi1"]
+shape = SubResource("BoxShape3D_e5jyi")

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ProtonScatterSphereShape" load_steps=2 format=3 uid="uid://c5h7a0kscxppi"]
+
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/sphere_shape.gd" id="1_lxumk"]
+
+[resource]
+script = ExtResource("1_lxumk")
+radius = 106.902

@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=4 uid="uid://ble4qvm6lpw5j"]
+
+[ext_resource type="PackedScene" uid="uid://lum8ul48vfay" path="res://3d environment/orapihlaja.glb" id="1_wdhld"]
+[ext_resource type="Texture2D" uid="uid://cg0gsrdy1jrud" path="res://3d environment/bush_atlas_normal.png" id="2_qpg7l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wjudx"]
+load_path = "res://.godot/imported/orapihlaja_orapihlaja_texture.png-05bd2b4a69ec6afe3da32d5030333a6e.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_heigh"]
+resource_name = "orapihlaja"
+transparency = 4
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_wjudx")
+normal_enabled = true
+normal_texture = ExtResource("2_qpg7l")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i7eaq"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -0.5, 2, 2.6, 1.1),
+"format": 34896613377,
+"index_count": 108,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwAMAAMABwARAAwAAQAPAAUAAQAIAA8ADwAHAAUABwATABEAEwAOABIADgAPABAADwATAAcAEwAPAA4AEgAJAAsAEgAOAAkACwATABIACwANABMADQARABMADQAMABEADgAKAAkADgAQAAoAEAAIAAoAEAAPAAgADAABAAMAAQAKAAgACgALAAkACwAMAA0ADAAKAAEACgAMAAsA"),
+"lods": [0.0625751, PackedByteArray("AAADAAEAAAACAAMAAwAKAAEACgADAAsACwADAA0AAgAHAAMAAgAGAAcADQADAAcADQAHABMABgAFAAcABgAEAAUABQATAAcAEwAFAA4ADgAFABAABAABAAUABAAAAAEAEAAFAAEAEAABAAoAAgAEAAYAAgAAAAQACwATAA4ACwANABMADgAKAAsADgAQAAoA")],
+"name": "orapihlaja",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAGGn//8AAAAAAAAAAAAAAABhpwAAAAD//wAA//8AAP//Yaf//wAA//8AAAAAAAD//2GnAAAAAAAAj9FI8AAAAAD//wGQAAAAAGXyFdQAAAAA///9bwAAAACP0bYPAAAAAGXy6SsAAP////8BkAAA//+P0UjwAAD//2XyFdQAAP//j9G2DwAA//////1vAAD//2Xy6SsAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vqj72"]
+resource_name = "orapihlaja_Cube_018"
+_surfaces = [{
+"aabb": AABB(-1, 0, -0.5, 2, 2.6, 1.1),
+"attribute_data": PackedByteArray("/8b/hCt/hrL/cP+C4VwrXv8C/wThXNJf/8b/1Ct/xeb/xv/UK3/F5v8C/1bhXNCU/wL/hNMAhrL/pv+CK38rXv84/wQrf9Jf/wL/1NMAxeb/Av/U0wDF5v84/1Yrf9CU/2T/hNNAhrL/cP8g4VzSH/9u/wQd4x8u/2T/1NNAxeb/ZP/U00DF5v9u/1Yd4x1j/2T/hCw/hrL/pv8gK3/SH/86/wTSwB8u/2T/1Cw/xeb/ZP/ULD/F5v86/1bSwB1j/8b/6it/SfT/xv/qK39J9P8G/2z8Xiui/7T/INJNhnL/tP8g0k2Gcv8a/4Lha9+w/8b/+it/K///pv8gs0SGcv8M/3zDYpCs/7z/IBxShnL/vP8gHFKGcv8g/4IrcN+w/wL/6tMASfT/Av/q0wBJ9P80/2wRfSui/wL/+tMAK///yv8gOluGcv8u/3xKeZCs/7T/gtJN37D/tP+C0k3fsP9Y/4Ic1Cx//2T/6tNASfT/ZP/q00BJ9P9s/2wC4Xhw/2T/+tNAK///pv+Cs0TfsP9m/3w73d16/2T/6iw/SfT/ZP/qLD9J9P88/2ztwnhw/7z/ghxS37D/vP+CHFLfsP9Q/4LTzyx//2T/+iw/K///yv+COlvfsP9C/3y0xt16/7z/IBxShnI="),
+"format": 34896613431,
+"index_count": 108,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAkAAoAFgAzACQABAAtABAABAAYAC0ALwAXABEAFwA7ADUAOwAsADgALAAvADIALwA7ABcAOwAvACwANwAcACIANwArABwAIQA6ADYAIQAoADoAJwA0ADkAJwAlADQAKgAfABsAKgAxAB8AMAAZAB4AMAAuABkAJgAFAAsABQAgABoAIAAjAB0AIwAmACkAJgAgAAUAIAAmACMA"),
+"lods": [0.0625751, PackedByteArray("AgALAAUAAgAIAAsACwAgAAUAIAALACMAIwALACkABgAVAAkABgASABUAJwAJABUAJwAVADkAFAARABcAFAAOABEAEQA7ABcAOwARACwALAARADIADAADAA8ADAAAAAMAMAAPAAMAMAADAB4ABwANABMABwABAA0APAA6ACoAPAAoADoAKgAfADwAKgAxAB8A")],
+"material": SubResource("StandardMaterial3D_heigh"),
+"name": "orapihlaja",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 61,
+"vertex_data": PackedByteArray("AAAAAP////8AAAAA//9U1QAAAAD/////AABhp/////8AAGGn/////wAAYaf//+D/AAAAAAAA//8AAAAAAABU1QAAAAAAAP//AABhpwAA//8AAGGnAACg+QAAYacAAP////8AAP///////wAA//9U1f//AAD///////9hp////////2Gn////////Yaf///////8AAAAA/////wAAAABU1f//AAAAAP////9hpwAA/////2GnAACg+f//YacAAOD/AACP0Ujw//8AAI/RSPD//wAAj9FI8IL3AAD//wGQ1ssAAP//AZBU1QAA//8BkP//AABl8hXU//8AAGXyFdTWywAAZfIV1Lb/AAD///1vXeAAAP///W9U1QAA///9b9v/AACP0bYPoPkAAI/Rtg/M8QAAj9G2D8j/AABl8ukrzPEAAGXy6Std4AAAZfLpK3n+/////wGQ1sv/////AZBU1f////8BkNv///+P0Ujw/////4/RSPD/////j9FI8Mj///9l8hXU/////2XyFdTWy///ZfIV1Hn+//+P0bYPoPn//4/Rtg/M8f//j9G2D4L3//////1vXeD//////W9U1f/////9b/////9l8ukrzPH//2Xy6Std4P//ZfLpK7b/AAD///1vp9j/f/9/VFVUVf8//3//f/9//39Lid3/EMD///9/VFVUVf8//3////9/////f/8//3//f/9/VFVUVf+//3//f/9//39Lif+//3////9/VFVUVf+//3////9/////fyEA7j//f0uJ/38okyT3bMQ53MUjVNWqKv8//3//fyiTOdzFI6//J8Blz5kwVNWqKtf/EsD///9/////fx5APID///9/Zc+ZMNVAq4E53MUjVNWqKicA7D//f0uJ/38ok+C/wn//fyiTOdzFIym/U37///9/////f9oIkjtlz5kwVNWqKv+//3////9/Zc+ZME8A1z8X0V8z")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i7eaq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cwe68"]
+size = Vector3(2, 2, 1)
+
+[sub_resource type="BoxOccluder3D" id="BoxOccluder3D_45tr2"]
+size = Vector3(2, 3, 1)
+
+[node name="orapihlaja2" instance=ExtResource("1_wdhld")]
+
+[node name="orapihlaja" parent="." index="0"]
+mesh = SubResource("ArrayMesh_vqj72")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_cwe68")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+occluder = SubResource("BoxOccluder3D_45tr2")
