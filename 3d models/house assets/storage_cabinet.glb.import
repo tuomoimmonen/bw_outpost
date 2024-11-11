@@ -34,7 +34,6 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:storage_cabinet": {
-"generate/physics": true,
 "physics/shape_type": 2
 }
 }

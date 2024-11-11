@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://d0aobvk3wfm16"]
+[gd_scene load_steps=10 format=4 uid="uid://d0aobvk3wfm16"]
 
 [ext_resource type="Script" path="res://3d models/props2/open_book.gd" id="1_qs5cx"]
 [ext_resource type="Texture2D" uid="uid://cv0tavw1d3m6b" path="res://3d models/props2/props2_props2_atlas_with_blood.png" id="1_tqx10"]
 [ext_resource type="Texture2D" uid="uid://d3v4gq33ol3a8" path="res://3d models/props2/props2_props2_atlas_with_blood_normal.png" id="2_7ymu4"]
 [ext_resource type="StyleBox" uid="uid://bch01ow85jktb" path="res://AI/text_box.tres" id="4_mv5te"]
+[ext_resource type="AudioStream" uid="uid://wqbiqb1s5fjs" path="res://audio/UI_Click_Aftertap_mono.wav" id="5_ciomh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u1rgx"]
 size = Vector3(0.736328, 0.152344, 0.477539)
@@ -88,7 +89,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "This is something interesting text about the book"
+theme_override_font_sizes/font_size = 10
+text = "It speaks in vague terms of ‘the one who watches in silence’ and ‘an offering of three lost things’ needed."
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="TextPanel"]
@@ -107,5 +109,9 @@ tooltip_text = "CONTINUE"
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = ExtResource("4_mv5te")
 text = "CONTINUE"
+
+[node name="button_sound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_ciomh")
 
 [connection signal="pressed" from="TextPanel/Button" to="." method="_on_button_pressed"]

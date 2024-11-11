@@ -30,7 +30,7 @@ func change_state(state_name):
 	new_state.enter()
 	
 	# DEBUG
-	print("change state: " + state_name)
+	#print("change state: " + state_name)
 
 func _process(delta: float) -> void:
 	if current_state != null:

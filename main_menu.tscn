@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2v14wytvp5m"]
+[gd_scene load_steps=6 format=3 uid="uid://b2v14wytvp5m"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_4hmcf"]
 [ext_resource type="Theme" uid="uid://8hk1826wuq1t" path="res://main_theme.tres" id="1_c8tcp"]
+[ext_resource type="PackedScene" uid="uid://b6d8qw4jppcnu" path="res://settings.tscn" id="3_4jejg"]
+[ext_resource type="AudioStream" uid="uid://d2723x5umcsfu" path="res://audio/bwout_Mainmenu1.ogg" id="4_unncr"]
+[ext_resource type="AudioStream" uid="uid://wqbiqb1s5fjs" path="res://audio/UI_Click_Aftertap_mono.wav" id="5_yxtkq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -19,22 +22,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0895275, 0.0100187, 1.50409e-09, 1)
+color = Color(0.0901961, 0.0117647, 0, 1)
 
 [node name="game_title_text" type="Label" parent="."]
-layout_mode = 2
-offset_left = 69.5
-offset_top = -4.0
-offset_right = 250.5
-offset_bottom = 41.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.079
+anchor_right = 1.0
+anchor_bottom = 0.196
+offset_top = 0.039999
+offset_bottom = -0.0400009
 grow_horizontal = 2
-grow_vertical = 2
 theme = ExtResource("1_c8tcp")
-text = "GAME TITLE"
+theme_override_colors/font_shadow_color = Color(0.0475577, 0.0475576, 0.0475576, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+text = "BLACKWOOD OUTPOST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="torkut_software_text" type="Label" parent="."]
+visible = false
 layout_mode = 2
 offset_left = 69.5
 offset_top = 222.0
@@ -55,15 +66,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -110.5
-offset_right = 100.0
-offset_bottom = 110.5
+offset_left = -58.5
+offset_top = -45.0
+offset_right = 58.5
+offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -73,18 +84,67 @@ theme_override_constants/separation = 10
 [node name="Play button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_c8tcp")
+theme_override_font_sizes/font_size = 15
 text = "PLAY"
 
 [node name="Settings button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_c8tcp")
+theme_override_font_sizes/font_size = 15
 text = "SETTINGS"
+
+[node name="Controls button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_c8tcp")
+theme_override_font_sizes/font_size = 15
+text = "CONTROLS"
 
 [node name="Quit button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_c8tcp")
+theme_override_font_sizes/font_size = 15
 text = "QUIT"
+
+[node name="settings" parent="." instance=ExtResource("3_4jejg")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_unncr")
+volume_db = -10.0
+autoplay = true
+
+[node name="Controls UI" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -19.0
+offset_right = 97.0
+offset_bottom = 63.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls UI"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Controls UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "WASD Movement
+[E] Interact
+[F] Flashlight
+[Mouse1] Fire
+[LSHIFT] Run"
+
+[node name="button_sound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_yxtkq")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play button" to="." method="play"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Settings button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls button" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit button" to="." method="quit"]

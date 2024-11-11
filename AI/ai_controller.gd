@@ -32,6 +32,7 @@ var can_move : bool = true
 @export var eat_audio : AudioStream
 @onready var footstep_sound: AudioStreamPlayer3D = %footstep_sound
 @onready var eat_sound: AudioStreamPlayer3D = %eat_sound
+@onready var attack_sound_player: AudioStreamPlayer3D = %attack_sound_player
 
 func _ready() -> void:
 	anim_state = animation_tree["parameters/playback"]
@@ -107,23 +108,24 @@ func move_to_position(to_position : Vector3, adjust_position : bool = true):
 		navigation_agent_3d.target_position = to_position
 
 func play_walk_sound() -> void:
-	print("walk audio")
+	#print("walk audio")
 	footstep_sound.stream = walk_audio
 	footstep_sound.pitch_scale = randf_range(0.8, 1.1)
 	if !footstep_sound.playing:
 		footstep_sound.play()
 
 func play_run_audio() -> void:
-	print("run")
+	#print("run")
 	footstep_sound.stream = run_audio
 	footstep_sound.pitch_scale = randf_range(0.8, 1.1)
 	if !footstep_sound.playing:
 		footstep_sound.play()
 
 func play_attack_sound() -> void:
-	footstep_sound.stream = attack_audio
-	if !footstep_sound.playing:
-		footstep_sound.play()
+	attack_sound_player.stream = attack_audio
+	attack_sound_player.pitch_scale = randf_range(0.9, 1.1)
+	if !attack_sound_player.playing:
+		attack_sound_player.play()
 	pass
 
 func play_eat_audio() -> void:
@@ -135,7 +137,7 @@ func play_eat_audio() -> void:
 func play_random_sound() -> void:
 	if !random_sound.playing:
 		random_sound.stream = random_sounds.pick_random()
-		random_sound.pitch_scale = randf_range(0.9,1.2)
+		random_sound.pitch_scale = randf_range(0.9,1.1)
 		random_sound.play()
 
 func death() -> void:

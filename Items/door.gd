@@ -39,8 +39,8 @@ func open_door():
 	interactable = true
 	is_door_open = !is_door_open
 	var random_chance_to_close_door : float = randf_range(0.0, 1.0)
-	print(random_chance_to_close_door)
-	if random_chance_to_close_door >= 0.5:
+	#print(random_chance_to_close_door)
+	if random_chance_to_close_door >= 0.7:
 		await get_tree().create_timer(5.0).timeout
 		door_sound.stream = CREAK_DOOR_04_MONO
 		close_door()

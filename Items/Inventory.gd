@@ -22,8 +22,9 @@ func _ready() -> void:
 	GlobalSignals.on_give_player_item.connect(on_give_player_item)
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("inventory"):
-		toggle_window(!inventory_window.visible)
+	pass
+	#if Input.is_action_just_pressed("inventory"):
+	#	toggle_window(!inventory_window.visible)
 
 func toggle_window(open : bool):
 	inventory_window.visible = open

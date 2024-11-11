@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://bw4c3hb1uuco"]
+[gd_scene load_steps=8 format=4 uid="uid://bw4c3hb1uuco"]
 
 [ext_resource type="PackedScene" uid="uid://bn7x14du4q61q" path="res://3d models/house assets/storage_cabinet.glb" id="1_8he4h"]
 [ext_resource type="Texture2D" uid="uid://ivgocxwexf43" path="res://3d models/house assets/storage_cabinet_texture_lowres_normal.png" id="2_4awok"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yeri2"]
+height = 0.5
+radius = 0.696693
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xlkwt"]
 load_path = "res://.godot/imported/storage_cabinet_storage_cabinet_texture_lowres.png-ec1e403f83daf90d39321a4758922d6f.s3tc.ctex"
@@ -53,10 +57,15 @@ shadow_mesh = SubResource("ArrayMesh_lfhdn")
 [node name="storage_cabinet2" instance=ExtResource("1_8he4h")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="storage_cabinet" parent="." index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.140113, -0.37018)
+shape = SubResource("CylinderShape3D_yeri2")
+
+[node name="storage_cabinet" parent="." index="1"]
 mesh = SubResource("ArrayMesh_38qs7")
 
-[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="1"]
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="2"]
 radius = 2.0
 affect_navigation_mesh = true
-carve_navigation_mesh = true

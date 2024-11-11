@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://05huv5rgff8" path="res://3d models/house assets/metal_sink.glb" id="1_sbjf7"]
 [ext_resource type="Texture2D" uid="uid://ddun4efhwtwhg" path="res://3d models/house assets/sink_texture_lowres2_normal.png" id="2_vlsfi"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qiw7"]
+size = Vector3(1.58569, 1.96484, 0.782959)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bfmee"]
 load_path = "res://.godot/imported/metal_sink_sink_texture_lowres2.png-54b2e3b8e7bc55c11ce90d730a24bcdd.s3tc.ctex"
 
@@ -51,19 +54,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hic20")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0qiw7"]
-size = Vector3(1.58569, 1.96484, 0.782959)
-
 [node name="metal_sink2" instance=ExtResource("1_sbjf7")]
 
-[node name="metal_sink" parent="." index="0"]
-mesh = SubResource("ArrayMesh_ne66g")
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="metal_sink" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="metal_sink/StaticBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("BoxShape3D_0qiw7")
 
-[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="1"]
+[node name="metal_sink" parent="." index="1"]
+mesh = SubResource("ArrayMesh_ne66g")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="." index="2"]
 radius = 1.5
 affect_navigation_mesh = true

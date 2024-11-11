@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://byvnqd5nyi4o"]
+[gd_scene load_steps=36 format=3 uid="uid://byvnqd5nyi4o"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_srlcb"]
 [ext_resource type="Script" path="res://Player/interaction_controller.gd" id="2_0ll85"]
@@ -24,8 +24,9 @@
 [ext_resource type="Resource" uid="uid://lc015fgt20b7" path="res://Items/Item Data/Pistol.tres" id="14_lj7g7"]
 [ext_resource type="AudioStream" uid="uid://cui7bl2yhxboc" path="res://audio/FOOTSTEP_Leather_Wood_Hollow_Land_RR1_mono.wav" id="18_fja0w"]
 [ext_resource type="AudioStream" uid="uid://l5ru8nmio68" path="res://audio/AMBIENCE_Forest_Wind_Tree_Creak_34sec_loop_stereo.wav" id="21_0bea6"]
-[ext_resource type="AudioStream" uid="uid://bnin64qdqif55" path="res://audio/AMBIENCE_SciFi_Static_Tonal_loop_stereo.wav" id="22_df3vr"]
+[ext_resource type="AudioStream" uid="uid://brgffu6rkbm0m" path="res://audio/Bwout_room2.ogg" id="25_20n1f"]
 [ext_resource type="AudioStream" uid="uid://vnb2syajgqjo" path="res://audio/exhausted_recorded.ogg" id="25_ngi1q"]
+[ext_resource type="PackedScene" uid="uid://b6d8qw4jppcnu" path="res://settings.tscn" id="27_m21y5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3qxwv"]
 margin = 0.1
@@ -107,6 +108,7 @@ offset_right = 42.5
 offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -321,12 +323,12 @@ unit_size = 5.66
 
 [node name="Forest ambience" type="AudioStreamPlayer3D" parent="AmbienceController"]
 stream = ExtResource("21_0bea6")
-volume_db = -35.0
+volume_db = -28.0
 autoplay = true
 
 [node name="House ambience" type="AudioStreamPlayer3D" parent="AmbienceController"]
-stream = ExtResource("22_df3vr")
-volume_db = -40.0
+stream = ExtResource("25_20n1f")
+volume_db = -30.0
 
 [node name="sprint_slider" type="HSlider" parent="."]
 unique_name_in_owner = true
@@ -349,6 +351,10 @@ value = 22.23
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 stream = ExtResource("25_ngi1q")
-volume_db = -20.0
+volume_db = -18.0
 max_db = -5.0
 max_distance = 5.0
+
+[node name="settings" parent="." instance=ExtResource("27_m21y5")]
+unique_name_in_owner = true
+visible = false

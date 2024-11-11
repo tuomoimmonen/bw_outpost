@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://blavf5dxgf1e2"]
+[gd_scene load_steps=3 format=3 uid="uid://blavf5dxgf1e2"]
 
 [ext_resource type="PackedScene" uid="uid://bbyo01nf3ty87" path="res://3d models/house assets/power_unit.glb" id="1_yjjr5"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jdayo"]
+size = Vector3(4, 4, 4)
+
 [node name="power_unit2" instance=ExtResource("1_yjjr5")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="power_unit/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_jdayo")

@@ -28,6 +28,7 @@ var can_run : bool = true
 
 @export_group("Camera")
 @export var look_sensitivity := 0.005
+@onready var settings: Control = %settings
 
 @export_group("HeadBob")
 @export var bob_freq := 2.0
@@ -78,11 +79,16 @@ func _ready() -> void:
 	
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("settings"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().paused = true
+		settings.visible = true
+		
 	if !can_move:
 		return
 	# DEBUG BUTTON
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	#if Input.is_action_just_pressed("ui_cancel"):
+	#	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	
 	if sprint_slider.value == sprint_slider.min_value:
 		if !breathing_sound.playing:
@@ -98,7 +104,7 @@ func _process(_delta: float) -> void:
 		sprint_slider.value += sprint_recovery_speed * _delta
 		can_run = false
 		sprint_slider.visible = true
-		if sprint_slider.value > sprint_slider.max_value * 0.5:
+		if sprint_slider.value > sprint_slider.max_value * 0.3:
 			can_run = true
 			sprint_slider.visible = false
 

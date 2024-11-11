@@ -22,7 +22,7 @@ func _new_wander_position():
 func navigation_complete():
 	controller.is_idling = true
 	var wait_time = randf_range(min_wait_time, max_wait_time)
-	if wait_time > max_wait_time * 0.8:
+	if wait_time > max_wait_time * 0.7:
 		controller.play_random_sound()
 	await get_tree().create_timer(wait_time).timeout
 	if not active:

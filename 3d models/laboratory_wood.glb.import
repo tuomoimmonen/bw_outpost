@@ -34,7 +34,6 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:laboratory_wood": {
-"generate/navmesh": 1,
 "generate/occluder": 1,
 "generate/physics": true
 }

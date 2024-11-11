@@ -17,7 +17,5 @@ func _process(_delta: float) -> void:
 			interact_sound.play()
 			object._interact()
 	
-	if object and object is AIController:
-		interact_text.text = "Teppo"
 	
 	
